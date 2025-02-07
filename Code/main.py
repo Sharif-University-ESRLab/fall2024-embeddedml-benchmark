@@ -19,8 +19,17 @@ def main():
     interpreter = tf.lite.Interpreter(model_path=model_path)
     interpreter.allocate_tensors()
 
-    input_data = np.random.rand(49, 10).astype(np.int8)  # Original 3D input: [height, width, channels]
-    input_data = np.expand_dims(input_data, axis=0)    # Add batch dimension: [1, height, width, channels]
+    # Check the model's expected input shape
+    input_details = interpreter.get_input_details()
+    print("Input details:", input_details)
+    expected_input_shape = input_details[0]['shape']  # e.g., [1, 49, 10, 1]
+
+    # Generate input data with the correct shape
+    input_data = np.random.rand(49, 10).astype(np.int8)  # Original 2D input: [height, width]
+    input_data = np.expand_dims(input_data, axis=0)      # Add batch dimension: [1, height, width]
+    input_data = np.expand_dims(input_data, axis=-1)     # Add channel dimension: [1, height, width, 1]
+
+    print("Input data shape:", input_data.shape)
 
     # Measure execution time and memory usage
     num_iterations = 10
