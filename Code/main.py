@@ -3,6 +3,7 @@ import psutil
 import os
 import numpy as np
 import tensorflow as tf
+import json
 
 def run_inference(interpreter, input_data):
     input_details = interpreter.get_input_details()
@@ -21,26 +22,47 @@ def main():
     input_data = np.random.rand(49, 10).astype(np.int8)  # Original 3D input: [height, width, channels]
     input_data = np.expand_dims(input_data, axis=0)    # Add batch dimension: [1, height, width, channels]
 
-    start_time = time.time()
+    # Measure execution time and memory usage
+    num_iterations = 10
+    execution_times = []
+    memory_usages = []
+    cpu_usages = []
 
-    process = psutil.Process(os.getpid())
-    memory_before = process.memory_info().rss / (1024 ** 2)
+    for _ in range(num_iterations):
+        process = psutil.Process(os.getpid())
+        memory_before = process.memory_info().rss / (1024 ** 2)
+        cpu_before = psutil.cpu_percent(interval=0.1)
 
-    output = run_inference(interpreter, input_data)
+        start_time = time.time()
+        output = run_inference(interpreter, input_data)
+        end_time = time.time()
 
-    memory_after = process.memory_info().rss / (1024 ** 2)
+        memory_after = process.memory_info().rss / (1024 ** 2)
+        cpu_after = psutil.cpu_percent(interval=0.1)
 
-    end_time = time.time()
+        execution_times.append(end_time - start_time)
+        memory_usages.append(memory_after - memory_before)
+        cpu_usages.append(cpu_after - cpu_before)
 
-    execution_time = end_time - start_time
-    inference_delay = execution_time
+    avg_execution_time = np.mean(execution_times)
+    avg_memory_usage = np.mean(memory_usages)
+    avg_cpu_usage = np.mean(cpu_usages)
 
-    with open('benchmark_results.txt', 'w') as f:
-        f.write(f'Execution Time: {execution_time} seconds\n')
-        f.write(f'Memory Before Inference: {memory_before} MB\n')
-        f.write(f'Memory After Inference: {memory_after} MB\n')
-        f.write(f'Inference Delay: {inference_delay} seconds\n')
-        f.write(f'Output: {output}\n')
+    # Save results
+    results = {
+        'avg_execution_time': avg_execution_time,
+        'avg_memory_usage': avg_memory_usage,
+        'avg_cpu_usage': avg_cpu_usage,
+        'output': output.tolist()
+    }
+
+    with open('benchmark_results.json', 'w') as f:
+        json.dump(results, f, indent=4)
+
+    print(f"Average Execution Time: {avg_execution_time} seconds")
+    print(f"Average Memory Usage: {avg_memory_usage} MB")
+    print(f"Average CPU Usage: {avg_cpu_usage}%")
+    print(f"Output: {output}")
 
 if __name__ == '__main__':
     main()
