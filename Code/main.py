@@ -12,7 +12,7 @@ def run_inference(interpreter, input_data):
     interpreter.set_tensor(input_details[0]['index'], input_data)
     interpreter.invoke()
     output = interpreter.get_tensor(output_details[0]['index'])
-    return output
+    return output, output_details
 
 def main():
     model_path = 'D:/Reposetories/fall2024-embeddedml-benchmark/Code/ConvertedModel/speech_commands_model.tflite'
@@ -43,7 +43,7 @@ def main():
         cpu_before = psutil.cpu_percent(interval=0.1)
 
         start_time = time.time()
-        output = run_inference(interpreter, input_data)
+        output, output_details = run_inference(interpreter, input_data)
         end_time = time.time()
 
         memory_after = process.memory_info().rss / (1024 ** 2)
@@ -57,12 +57,17 @@ def main():
     avg_memory_usage = np.mean(memory_usages)
     avg_cpu_usage = np.mean(cpu_usages)
 
+    # Dequantize the output
+    output_scale, output_zero_point = output_details[0]['quantization']
+    dequantized_output = output_scale * (output - output_zero_point)
+
     # Save results
     results = {
         'avg_execution_time': avg_execution_time,
         'avg_memory_usage': avg_memory_usage,
         'avg_cpu_usage': avg_cpu_usage,
-        'output': output.tolist()
+        'quantized_output': output.tolist(),
+        'dequantized_output': dequantized_output.tolist()
     }
 
     with open('benchmark_results.json', 'w') as f:
@@ -71,7 +76,8 @@ def main():
     print(f"Average Execution Time: {avg_execution_time} seconds")
     print(f"Average Memory Usage: {avg_memory_usage} MB")
     print(f"Average CPU Usage: {avg_cpu_usage}%")
-    print(f"Output: {output}")
+    print(f"Quantized Output: {output}")
+    print(f"Dequantized Output: {dequantized_output}")
 
 if __name__ == '__main__':
     main()
