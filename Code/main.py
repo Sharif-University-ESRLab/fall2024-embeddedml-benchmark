@@ -18,7 +18,8 @@ def main():
     interpreter = tf.lite.Interpreter(model_path=model_path)
     interpreter.allocate_tensors()
 
-    input_data = np.random.rand(1, 49, 10).astype(np.int8)
+    input_data = np.random.rand(49, 10).astype(np.int8)  # Original 3D input: [height, width, channels]
+    input_data = np.expand_dims(input_data, axis=0)    # Add batch dimension: [1, height, width, channels]
 
     start_time = time.time()
 
