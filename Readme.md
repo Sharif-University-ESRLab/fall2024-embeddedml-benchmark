@@ -58,9 +58,7 @@ Some links related to your project come here.
  - [ESP32 Pinout](https://randomnerdtutorials.com/esp32-pinout-reference-gpios/)
  - [Django Doc](https://docs.djangoproject.com/en/5.0/)
 
-
 ## Authors
-Authors and their github link come here.
-- [@Author1](https://github.com/Sharif-University-ESRLab)
-- [@Author2](https://github.com/Sharif-University-ESRLab)
-
+- [Iman Mohammadi](https://github.com/Imanm02)
+- [Shayan Salehi](https://github.com/ShayanSalehi81)
+- [Armin Saghafian](https://github.com/ArminS03)
