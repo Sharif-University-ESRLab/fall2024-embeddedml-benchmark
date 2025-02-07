@@ -2,19 +2,20 @@
 ![Logo](https://via.placeholder.com/600x150?text=Your+Logo+Here+600x150)
 
 
-# Project Title
+# EmbeddedML-Benchmark
 
-A brief description of what this project does and who it's for comes here.
-
+The main goal of this project is to implement and optimize machine learning and deep learning algorithms on embedded systems using STM32 boards. Embedded systems face unique challenges, such as hardware limitations and energy consumption, which complicate the execution of complex algorithms. With the advent of technologies like TinyML and optimized frameworks, the implementation of machine learning on these systems has become feasible.
 
 ## Tools
-In this section, you should mention the hardware or simulators utilized in your project.
-- Qemu
-- Gem5
-- ESP32
-- Raspberry Pi 3B
-- Temperature Sensor
+- Familiarity with the STM32 board and programming it
+- Experience with Segger SystemView for runtime and clock cycle measurements
+- Knowledge of machine learning libraries for embedded systems
 
+### Initial Research
+We will start by investigating various machine learning libraries for embedded systems like TensorFlow Lite, PyTorch Mobile, and Edge Impulse, selecting one for our project. Subsequent research will focus on the types of algorithms used in embedded systems, selecting suitable ones for implementation on the STM32 board.
+
+### Benchmarking Design and Execution
+Designing and conducting benchmark tests to evaluate the performance of these algorithms in terms of execution time and resource consumption is a primary objective of the project.
 
 ## Implementation Details
 
