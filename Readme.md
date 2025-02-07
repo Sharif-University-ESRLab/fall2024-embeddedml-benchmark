@@ -1,4 +1,4 @@
-![Logo](https://via.placeholder.com/600x150?text=Your+Logo+Here+600x150)
+![Logo](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Logo.jpg)
 
 # Embedded ML Benchmark
 
