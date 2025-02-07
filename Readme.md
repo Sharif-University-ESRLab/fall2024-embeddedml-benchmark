@@ -1,62 +1,132 @@
-
 ![Logo](https://via.placeholder.com/600x150?text=Your+Logo+Here+600x150)
 
+# Embedded ML Benchmark
 
-# EmbeddedML-Benchmark
-
-The main goal of this project is to implement and optimize machine learning and deep learning algorithms on embedded systems using STM32 boards. Embedded systems face unique challenges, such as hardware limitations and energy consumption, which complicate the execution of complex algorithms. With the advent of technologies like TinyML and optimized frameworks, the implementation of machine learning on these systems has become feasible.
+This project measures how well an STM32 microcontroller can recognize spoken commands. It checks how fast the device processes information, how much memory it uses, and how much power it consumes.
 
 ## Tools
-- Familiarity with the STM32 board and programming it
-- Experience with Segger SystemView for runtime and clock cycle measurements
-- Knowledge of machine learning libraries for embedded systems
 
-### Initial Research
-We will start by investigating various machine learning libraries for embedded systems like TensorFlow Lite, PyTorch Mobile, and Edge Impulse, selecting one for our project. Subsequent research will focus on the types of algorithms used in embedded systems, selecting suitable ones for implementation on the STM32 board.
+**Hardware:**
 
-### Benchmarking Design and Execution
-Designing and conducting benchmark tests to evaluate the performance of these algorithms in terms of execution time and resource consumption is a primary objective of the project.
+- **STM32 Development Board:** For example, the STM32H7 series, which offers higher performance.
+- **Audio Input:** A microphone or pre-recorded audio samples for testing.
+
+**Software:**
+
+- **Development Tools:**
+  - **STM32CubeIDE:** An integrated development environment for STM32 microcontrollers.
+  - **STM32Cube.AI:** A tool to convert and optimize neural network models for STM32 devices.
+- **Libraries:**
+  - **TensorFlow Lite for Microcontrollers:** A lightweight version of TensorFlow designed for microcontroller environments.
+- **Other Tools:**
+  - **Python 3.x:** For scripting and model preparation.
+  - **Git:** For version control.
 
 ## Implementation Details
 
-In this section, you will explain how you completed your project. It is recommended to use pictures to demonstrate your system model and implementation.
+**1. Model Preparation and Conversion**
 
+- **Convert the Model to TensorFlow Lite Format:**
+  - Use a script (e.g., `ModelConverter.py`) to convert your trained model into the TensorFlow Lite format (`.tflite`).
 
-Feel free to use sub-topics for your projects. If your project consists of multiple parts (e.g. server, client, and embedded device), create a separate topic for each one.
+- **Validate the TensorFlow Lite Model:**
+  - Use a validation script (e.g., `ValidatTFModel.py`) to ensure the converted model works correctly.
+
+**2. Setting Up the STM32 Environment**
+
+- **Install STM32CubeIDE:**
+  - Download and install STM32CubeIDE from the [STMicroelectronics website](https://www.st.com/en/development-tools/stm32cubeide.html).
+
+- **Install STM32Cube.AI:**
+  - Within STM32CubeIDE, install the STM32Cube.AI plugin to enable model conversion and optimization features.
+
+**3. Deploying the Model to STM32**
+
+- **Convert the TensorFlow Lite Model to C Code:**
+  - Open STM32CubeIDE and switch to the STM32Cube.AI perspective.
+  - Select your `.tflite` model file.
+  - STM32Cube.AI will generate optimized C code from the model.
+
+- **Create a New STM32 Project:**
+  - In STM32CubeIDE, create a new project for your specific STM32 board.
+  - Add the generated C files from STM32Cube.AI to your project.
+  - Configure necessary peripherals (e.g., ADC, I2S) for audio input.
+  - Use the generated API to load the model and perform inference.
+
+**4. Implementing the Benchmark Test**
+
+- **Develop Inference Code:**
+  - Write the main application code (e.g., in `runner.c`) to:
+    - Capture audio data.
+    - Preprocess the data as required by the model.
+    - Run inference using the model.
+    - Record performance metrics.
+
+- **Measure Performance Metrics:**
+  - **Inference Latency:** Measure the time taken to perform a single inference.
+  - **Memory Usage:** Monitor RAM and Flash usage to ensure they are within the STM32's constraints.
+  - **Power Consumption:** Use tools like ST-Link's power profiling feature or external hardware to assess power usage during inference.
+
+**5. Running and Analyzing the Benchmark**
+
+- **Flash the Firmware:**
+  - Build the project in STM32CubeIDE to generate the firmware binary.
+  - Connect your STM32 board and flash the firmware onto it.
+
+- **Execute the Benchmark:**
+  - Reset or power cycle the STM32 board to start running the benchmark.
+  - Use a serial terminal (e.g., PuTTY, Tera Term) to view the printed inference times and predicted labels.
+
+- **Analyze Data:**
+  - **Inference Latency:** Calculate the average, minimum, and maximum inference times from the serial output.
+  - **Memory Usage:** Check the compiled binary size and runtime memory usage.
+  - **Power Consumption:** Review the power usage data collected during inference operations.
+
+**Example Serial Output:**
+
+```
+Inference Time: 15 ms, Predicted Label: 3
+Inference Time: 14 ms, Predicted Label: 7
+Inference Time: 16 ms, Predicted Label: 2
+...
+```
 
 ## How to Run
 
-In this part, you should provide instructions on how to run your project. Also if your project requires any prerequisites, mention them. 
+**Build the Project:**
 
-#### Examples:
-#### Build Project
-Your text comes here
-```bash
-  build --platform=OvmfPkg/OvmfPkgX64.dsc --arch=X64 --buildtarget=RELEASE --tagname=GCC5
-```
+In STM32CubeIDE, build your project to generate the firmware binary.
 
-#### Run server
-Your text comes here
-```bash
-  pyhton server.py -p 8080
-```
+**Flash the Firmware:**
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `-p` | `int` | **Required**. Server port |
+Connect your STM32 board to your computer.
 
+Use STM32CubeIDE to flash the generated firmware onto the board.
 
+**Run the Benchmark:**
+
+After flashing, reset or power cycle the STM32 board.
+
+Open a serial terminal (e.g., PuTTY, Tera Term) and connect to the appropriate COM port to view the output.
 
 ## Results
-In this section, you should present your results and provide an explanation for them.
 
-Using image is required.
+After running the benchmark, you should observe output similar to the following in your serial terminal:
+
+```
+Inference Time: 15 ms, Predicted Label: 3
+Inference Time: 14 ms, Predicted Label: 7
+Inference Time: 16 ms, Predicted Label: 2
+...
+```
+
+Analyze this data to assess the performance of your model on the STM32 microcontroller.
 
 ## Related Links
-Some links related to your project come here.
- - [EDK II](https://github.com/tianocore/edk2)
- - [ESP32 Pinout](https://randomnerdtutorials.com/esp32-pinout-reference-gpios/)
- - [Django Doc](https://docs.djangoproject.com/en/5.0/)
+
+- [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
+- [STM32Cube.AI](https://www.st.com/en/development-tools/stm32cubeai.html)
+- [TensorFlow Lite for Microcontrollers](https://www.tensorflow.org/lite/microcontrollers)
 
 ## Authors
 - [Iman Mohammadi](https://github.com/Imanm02)
