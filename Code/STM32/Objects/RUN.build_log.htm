@@ -27,18 +27,6 @@ Project File Date:  02/08/2025
 <h2>Output:</h2>
 *** Using Compiler 'V6.21', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
-Runner.c(1): warning: In file included from...
-C:/Users/Iman/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-   18 |   *              - To use or not the peripheral<92>s drivers in application code(i.e. 
-      |                                                ^
-C:/Users/Iman/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(19): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-   19 |   *                code will be based on direct access to peripheral<92>s registers 
-      |                                                                     ^
-C:/Users/Iman/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-   26 |   *           - Macros to access peripheral<92>s registers hardware
-      |                                            ^
-3 warnings generated.
-compiling Runner.c...
 assembling startup_stm32f10x_md.s...
 RTE/Device/STM32F103C8/system_stm32f10x.c(64): warning: In file included from...
 C:/Users/Iman/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
@@ -61,9 +49,80 @@ RTE/Device/STM32F103C8/system_stm32f10x.c(408): warning: unsafe buffer access [-
       |         ^~~~~~~~~~~~~
 5 warnings generated.
 compiling system_stm32f10x.c...
-linking...
-Program Size: Code=768 RO-data=252 RW-data=0 ZI-data=1632  
-".\Objects\RUN.axf" - 0 Error(s), 8 Warning(s).
+Runner.c(1): warning: In file included from...
+./model_data.h(1): warning: no previous extern declaration for non-static variable 'speech_commands_model_float32_tflite' [-Wmissing-variable-declarations]
+    1 | unsigned char speech_commands_model_float32_tflite[] = {
+      |               ^
+./model_data.h(1): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+    1 | unsigned char speech_commands_model_float32_tflite[] = {
+      | ^
+./model_data.h(3619): warning: no previous extern declaration for non-static variable 'speech_commands_model_float32_tflite_len' [-Wmissing-variable-declarations]
+ 3619 | unsigned int speech_commands_model_float32_tflite_len = 43392;
+      |              ^
+./model_data.h(3619): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+ 3619 | unsigned int speech_commands_model_float32_tflite_len = 43392;
+      | ^
+Runner.c(8): error: call to undeclared function 'HAL_Init'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    8 |     HAL_Init();
+      |     ^
+Runner.c(9): error: call to undeclared function 'SystemClock_Config'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    9 |     SystemClock_Config();
+      |     ^
+Runner.c(10): error: call to undeclared function 'MX_GPIO_Init'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   10 |     MX_GPIO_Init();
+      |     ^
+Runner.c(11): error: call to undeclared function 'MX_I2S_Init'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   11 |     MX_I2S_Init();
+      |     ^
+Runner.c(14): error: use of undeclared identifier 'ai_handle'
+   14 |     ai_handle network = AI_HANDLE_NULL;
+      |     ^
+Runner.c(15): error: use of undeclared identifier 'ai_error'
+   15 |     ai_error err = ai_speech_commands_model_create(&network, NULL);
+      |     ^
+Runner.c(16): error: use of undeclared identifier 'err'
+   16 |     if (err.type != AI_ERROR_NONE) {
+      |         ^
+Runner.c(16): error: use of undeclared identifier 'AI_ERROR_NONE'
+   16 |     if (err.type != AI_ERROR_NONE) {
+      |                     ^
+Runner.c(20): error: call to undeclared function 'ai_speech_commands_model_init'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   20 |     if (!ai_speech_commands_model_init(network, NULL)) {
+      |          ^
+Runner.c(20): error: use of undeclared identifier 'network'
+   20 |     if (!ai_speech_commands_model_init(network, NULL)) {
+      |                                        ^
+Runner.c(20): error: use of undeclared identifier 'NULL'
+   20 |     if (!ai_speech_commands_model_init(network, NULL)) {
+      |                                                 ^
+Runner.c(24): error: use of undeclared identifier 'ai_i32'
+   24 |     ai_i32 input_size = ai_speech_commands_model_inputs_size(network, NULL);
+      |     ^
+Runner.c(25): error: use of undeclared identifier 'ai_i32'
+   25 |     ai_i32 output_size = ai_speech_commands_model_outputs_size(network, NULL);
+      |     ^
+Runner.c(27): error: use of undeclared identifier 'int16_t'
+   27 |     int16_t input_data[input_size];
+      |     ^
+Runner.c(28): error: use of undeclared identifier 'int8_t'
+   28 |     int8_t output_data[output_size];
+      |     ^
+Runner.c(30): error: use of undeclared identifier 'uint32_t'
+   30 |     uint32_t start_time, end_time, inference_time;
+      |     ^
+Runner.c(35): error: call to undeclared function 'capture_audio'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   35 |         capture_audio(input_data, input_size);
+      |         ^
+Runner.c(35): error: use of undeclared identifier 'input_data'
+   35 |         capture_audio(input_data, input_size);
+      |                       ^
+Runner.c(35): error: use of undeclared identifier 'input_size'
+   35 |         capture_audio(input_data, input_size);
+      |                                   ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+2 warnings and 20 errors generated.
+compiling Runner.c...
+".\Objects\RUN.axf" - 19 Error(s), 7 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -94,7 +153,8 @@ Package Vendor: Keil
       Include file:  RTE_Driver/Config/RTE_Device.h
       Source file:   Device/Source/ARM/STM32F1xx_OPT.s
       Source file:   Device/Source/ARM/startup_stm32f10x_md.s
-Build Time Elapsed:  00:00:00
+Target not created.
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
