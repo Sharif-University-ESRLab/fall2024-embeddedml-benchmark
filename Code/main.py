@@ -65,7 +65,7 @@ def main():
         'dequantized_output': dequantized_output.tolist()
     }
 
-    with open('benchmark_results.json', 'w') as f:
+    with open('Code/benchmark_results.json', 'w') as f:
         json.dump(results, f, indent=4)
 
     print(f"Average Execution Time: {avg_execution_time} seconds")
