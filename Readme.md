@@ -109,6 +109,27 @@ After flashing, reset or power cycle the STM32 board.
 
 Open a serial terminal (e.g., PuTTY, Tera Term) and connect to the appropriate COM port to view the output.
 
+## Simulation Process
+
+For the simulation process, we utilized the TFLite model to get the result. We analyzed and monitored the memory usage, CPU TIM, Execution time, and outputs, and we were able to produce results iteratively in each area of measurement. the result is as follows.
+
+The CPU usage during iterations:
+
+![image](https://github.com/user-attachments/assets/34d538e4-39c3-417e-9588-a9f8f99f3812)
+
+The Memory Usage:
+
+![image](https://github.com/user-attachments/assets/2ee29c3c-012d-407d-9034-5e36fcb75bc7)
+
+The measured outputs of the TFLite model:
+
+![image](https://github.com/user-attachments/assets/c2cd8bac-cdd7-45da-ac96-c5886438e55a)
+
+And finally the execution time over iterations:
+
+![image](https://github.com/user-attachments/assets/237c0567-a871-4cdb-ad58-842ac8bb1eb1)
+
+
 ## Results
 
 After running the benchmark, you should observe output similar to the following in your serial terminal:
