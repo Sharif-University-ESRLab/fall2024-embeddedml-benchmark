@@ -195,7 +195,6 @@ def get_preprocess_audio_func(model_settings,is_training=False,background_data =
   
   return prepare_processing_graph
 
-
 def prepare_background_data(bg_path,BACKGROUND_NOISE_DIR_NAME):
   """Searches a folder for background noise audio, and loads it into memory.
   It's expected that the background audio samples will be in a subdirectory
@@ -230,7 +229,6 @@ def prepare_background_data(bg_path,BACKGROUND_NOISE_DIR_NAME):
   if not background_data:
     raise Exception('No background wav files were found in ' + search_path)
   return background_data
-
 
 def get_training_data(Flags, get_waves=False, val_cal_subset=False):
   
@@ -300,7 +298,6 @@ def get_training_data(Flags, get_waves=False, val_cal_subset=False):
   ds_val = ds_val.batch(Flags.batch_size)
   
   return ds_train, ds_test, ds_val
-
 
 if __name__ == '__main__':
   Flags, unparsed = kws_util.parse_command()

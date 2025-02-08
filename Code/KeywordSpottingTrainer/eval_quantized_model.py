@@ -2,7 +2,6 @@ import tensorflow as tf
 import os
 import numpy as np
 import argparse
-
 import get_dataset as kws_data
 import kws_util
 

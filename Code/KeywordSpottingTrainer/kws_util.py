@@ -176,7 +176,6 @@ def parse_command():
   Flags, unparsed = parser.parse_known_args()
   return Flags, unparsed
 
-
 def plot_training(plot_dir,history):
     if not os.path.exists(plot_dir):
         os.makedirs(plot_dir)
@@ -215,6 +214,3 @@ def get_callbacks(args):
     if(lr_sched_name == "step_function"):
         callbacks = [keras.callbacks.LearningRateScheduler(step_function_wrapper(batch_size),verbose=1)]
     return callbacks
-
-
-    

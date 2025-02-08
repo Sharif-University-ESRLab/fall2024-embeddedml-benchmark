@@ -57,8 +57,6 @@ def prepare_model_settings(label_count, args):
     'background_volume_range_': 0.1
   }
 
-
-
 def get_model(args):
   model_name = args.model_architecture
 

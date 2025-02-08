@@ -1,15 +1,3 @@
-'''
-MLCommons
-group: TinyMLPerf (https://github.com/mlcommons/tiny)
-
-image classification on cifar10
-
-eval_functions_eembc.py: performances evaluation functions from eembc
-
-refs:
-https://github.com/SiliconLabs/platform_ml_models/blob/master/eembc/Methodology/eval_functions_eembc.py
-'''
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -23,7 +11,6 @@ def calculate_accuracy(y_pred, labels):
     accuracy = 100 * correct / len(y_pred)
     print(f"Overall accuracy = {accuracy:2.1f}")
     return accuracy
-
 
 # Classifier accuracy per class calculation
 # y_pred contains the outputs of the network for the validation data
@@ -52,7 +39,6 @@ def calculate_all_accuracies(y_pred, labels, classes):
         print(f"Accuracy = {accuracies[class_item]:2.1f} ({classes[class_item]})")
 
     return accuracies
-
 
 # Classifier ROC AUC calculation
 # y_pred contains the outputs of the network for the validation data
@@ -122,7 +108,6 @@ def calculate_auc(y_pred, labels, classes, name):
 
     return roc_auc
 
-
 # Classifier overall accuracy calculation
 # y_pred contains the outputs of the network for the validation data
 # y_true are the correct answers (0.0 for normal, 1.0 for anomaly)
@@ -139,7 +124,6 @@ def calculate_ae_accuracy(y_pred, y_true):
 
     print(f"Overall accuracy = {accuracy:2.1f}")
     return accuracy
-
 
 # Classifier overall accuracy calculation
 # y_pred contains the outputs of the network for the validation data
@@ -185,7 +169,6 @@ def calculate_ae_pr_accuracy(y_pred, y_true):
     plt.show(block=False)
 
     return accuracy
-
 
 # Autoencoder ROC AUC calculation
 # y_pred contains the outputs of the network for the validation data
