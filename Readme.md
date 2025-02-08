@@ -8,7 +8,7 @@ This project measures how well an STM32 microcontroller can recognize spoken com
 
 **Hardware:**
 
-- **STM32 Development Board:** For example, the STM32H7 series, which offers higher performance.
+- **STM32 Development Board:** We used the STM32F103R8 series.
 - **Audio Input:** A microphone or pre-recorded audio samples for testing.
 
 **Software:**
