@@ -109,26 +109,6 @@ After flashing, reset or power cycle the STM32 board.
 
 Open a serial terminal (e.g., PuTTY, Tera Term) and connect to the appropriate COM port to view the output.
 
-## Simulation Process
-
-For the simulation process, we utilized the TFLite model to get the result. We analyzed and monitored the memory usage, CPU TIM, Execution time, and outputs, and we were able to produce results iteratively in each area of measurement. the result is as follows.
-
-The CPU usage during iterations:
-
-![image](https://github.com/user-attachments/assets/34d538e4-39c3-417e-9588-a9f8f99f3812)
-
-The Memory Usage:
-
-![image](https://github.com/user-attachments/assets/2ee29c3c-012d-407d-9034-5e36fcb75bc7)
-
-The measured outputs of the TFLite model:
-
-![image](https://github.com/user-attachments/assets/c2cd8bac-cdd7-45da-ac96-c5886438e55a)
-
-And finally the execution time over iterations:
-
-![image](https://github.com/user-attachments/assets/237c0567-a871-4cdb-ad58-842ac8bb1eb1)
-
 
 ## Results
 
@@ -220,6 +200,26 @@ But its 41 KB size makes it manageable to work with in embedding systems.
 ## Dataset Gathering
 
 One of our works' novel contributions is emotion detection dataset creation. For this dataset, we utilized GPT to generate sentences for each emotion, resulting in more than 6000 Farsi-labeled sentences across 12 different classes. For this reason, we used prompt engineering techniques to make sure that the generated sentences were valid and also unique.
+
+## Simulation Process
+
+For the simulation process, we utilized the TFLite model to get the result. We analyzed and monitored the memory usage, CPU time, execution time, and outputs, and we were able to produce results iteratively in each area of measurement. the result is as follows.
+
+The CPU usage during iterations:
+
+![image](https://github.com/user-attachments/assets/34d538e4-39c3-417e-9588-a9f8f99f3812)
+
+The Memory Usage:
+
+![image](https://github.com/user-attachments/assets/2ee29c3c-012d-407d-9034-5e36fcb75bc7)
+
+The measured outputs of the TFLite model:
+
+![image](https://github.com/user-attachments/assets/c2cd8bac-cdd7-45da-ac96-c5886438e55a)
+
+And finally, the execution time over iterations:
+
+![image](https://github.com/user-attachments/assets/237c0567-a871-4cdb-ad58-842ac8bb1eb1)
 
 
 ## Related Links
