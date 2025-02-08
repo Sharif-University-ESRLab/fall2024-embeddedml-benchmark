@@ -8,7 +8,9 @@
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{booktabs}
+\usepackage{hyperref} 
 \usepackage{multirow}
+\usepackage{subcaption}
 \usepackage{url}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -41,6 +43,8 @@ armin.saghafian@gmail.com}
 
 \begin{abstract}
 Deploying machine learning (ML) models on embedded systems is challenging due to strict memory and computational constraints. Traditional ML models are designed for large GPUs, but microcontrollers—commonly used in embedded environments—lack the memory to support models with millions of parameters. As the demand for ML in real-time systems grows, addressing these limitations has become critical. In this work, we introduce a benchmarking framework to evaluate ML models in embedded environments and on microcontrollers. Unlike prior studies that rely on simulators or require extensive pre-processing, our approach focuses on real-world deployment and direct execution. We assess model performance across five major tasks: Keyword Spotting, Visual Wake Words, Image Classification, Emotion Detection, and Anomaly Detection, providing a more practical evaluation of ML models under constrained conditions. Our findings offer insights into the trade-offs between accuracy, execution speed, and memory efficiency, contributing to standardized benchmarking methodologies for efficient TinyML deployment.
+
+
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -106,7 +110,7 @@ Additionally, prior studies on deploying ML models in embedded environments have
     \end{tabular}
     }
     \vspace{0.6em}
-    \caption{TODO}
+    \caption{Overall results for each scenrio.}
     \label{tab:img}
 \end{table*}
 
@@ -149,9 +153,86 @@ We use the ToyADMOS dataset, which consists of audio recordings from six types o
 
 Emotion detection is a key application of Natural Language Processing (NLP) in embedded systems, enabling intelligent human-machine interactions in fields such as customer service, mental health monitoring, and assistive technologies. The goal of this benchmark is to classify emotions in spoken or written text while running on resource-constrained devices.
 
-For this task, we use a dataset, which consists of transcribed conversations labeled with different emotional categories, including happiness, sadness, anger, and neutrality. The benchmark model is a transformer-based NLP model optimized for embedded deployment. Instead of processing raw audio, the model analyzes textual features extracted from transcribed sentences. The input text is tokenized and converted into embeddings, which are then processed using a quantized transformer model. After conversion to TFLite format, the model achieves an accuracy of 75\%, demonstrating the feasibility of real-time emotion classification on microcontrollers.
+For this task, we use a dataset, which consists of transcribed conversations labeled with different emotional categories, including happiness, sadness, anger, and neutrality. The benchmark model is a transformer-based NLP model optimized for embedded deployment. Instead of processing raw audio, the model analyzes textual features extracted from transcribed sentences. The input text is tokenized and converted into embeddings, which are then processed using a quantized transformer model. After conversion to TFLite format, the model achieves an accuracy of 75\%, demonstrating the feasibility of real-time emotion classification on micro-controllers.
+
+\begin{figure*}[!htbp]
+\centering
+\captionsetup[subfigure]{justification=centering}
+\captionsetup{justification=centering}
+
+  \begin{subfigure}{0.48\linewidth}
+  \centering
+    \includegraphics[width=\linewidth]{anamoly_forest.jpg}
+    \caption{}
+    \label{plots:1-a}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.48\linewidth}
+  \centering
+    \includegraphics[width=\linewidth]{anamoly_auto.jpg}
+    \caption{}
+    \label{plots:1-b}
+  \end{subfigure}
+
+  \caption{Results of anomaly detection using two methods.}
+  \label{fig:baseline1}
+\end{figure*}
+
+\begin{figure*}[!htbp]
+\centering
+\captionsetup[subfigure]{justification=centering}
+\captionsetup{justification=centering}
+
+  \begin{subfigure}{0.48\linewidth}
+  \centering
+    \includegraphics[width=\linewidth]{bert_acc.jpg}
+    \caption{}
+    \label{plots:2-a}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.48\linewidth}
+  \centering
+    \includegraphics[width=\linewidth]{bert_loss.jpg}
+    \caption{}
+    \label{plots:2-b}
+  \end{subfigure}
+
+  \caption{Training loss and accuracy of BERT model for emotion detection benchmark.}
+  \label{fig:baseline2}
+\end{figure*}
 
 \section{Results}
+
+In this section, we present the results of our benchmarking framework by evaluating machine learning models on resource-constrained embedded systems. The experiments focus on key tasks, including anomaly detection and emotion detection, providing insights into model accuracy, efficiency, and robustness under constrained environments.
+
+The anomaly detection benchmark was conducted using two different models: Random Forest and a Fully Connected Autoencoder. The results, shown in Fig.~\ref{fig:baseline1}, illustrate how these methods perform when detecting anomalies. The Random Forest model (Fig.~\ref{plots:1-a}) classifies anomalies based on labeled training data, while the Autoencoder-based approach (Fig.~\ref{plots:1-b}) reconstructs normal data patterns and detects deviations as anomalies. The comparison highlights the differences in decision boundaries and reconstruction errors for anomaly identification.
+
+For emotion detection, we evaluated a transformer-based BERT model trained on text-based sentiment classification. Fig.~\ref{fig:baseline2} presents the model's training performance, where accuracy steadily improves while loss decreases over training epochs. These results indicate the model's capability to learn and generalize effectively within the embedded environment. However, some fluctuations in validation accuracy suggest potential overfitting or dataset complexity.
+
+Additionally, we compare the performance of a standard LSTM model against an enhanced LSTM architecture for emotion classification. The confusion matrices in Fig.~\ref{fig:baseline3} illustrate the classification accuracy for different emotional categories. The enhanced LSTM model (Fig.~\ref{plots:3-b}) demonstrates improved performance across most categories compared to the standard LSTM model (Fig.~\ref{plots:3-a}), highlighting the impact of architectural modifications on classification accuracy.
+
+\begin{figure*}[!htbp]
+\centering
+\captionsetup[subfigure]{justification=centering}
+\captionsetup{justification=centering}
+
+  \begin{subfigure}{0.48\linewidth}
+  \centering
+    \includegraphics[width=\linewidth]{mat_lstm.jpg}
+    \caption{}
+    \label{plots:3-a}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.48\linewidth}
+  \centering
+    \includegraphics[width=\linewidth]{mat_lstm_enhanced.jpg}
+    \caption{}
+    \label{plots:3-b}
+  \end{subfigure}
+
+  \caption{Confusion matrix showing the performance of LSTM and enhanced LSTM.}
+  \label{fig:baseline3}
+\end{figure*}
 
 \section{Impact}
 
@@ -172,6 +253,16 @@ Despite these challenges, this work represents an important step toward establis
 
 
 \section{Conclusion}
+
+TinyML is rapidly expanding within the IoT hardware and software industry, enabling efficient machine learning at the edge. However, evaluating and comparing TinyML systems remains a significant challenge due to their diverse architectures and constrained environments. The complexity of embedded ML deployments makes systematic benchmarking essential for measuring progress and guiding development.
+
+To address this, we introduce a benchmarking framework that provides a structured method for evaluating TinyML models. By assessing energy efficiency, latency, and accuracy, our benchmark enables fair comparisons across different platforms. This work serves as a foundation for optimizing ML deployment on embedded devices while fostering collaboration between academia and industry.
+
+Standardized benchmarking is crucial for the future of TinyML, ensuring robust, replicable, and meaningful evaluations. As TinyML continues to evolve, the insights gained from this benchmark will help drive innovation and improve the efficiency of ML models in resource-constrained environments.
+
+The benchmark suite and reference implementations are open-source and available on our {\href{https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark}{GitHub repository}}.
+
+
 
 \begin{thebibliography}{00}
 
