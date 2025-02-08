@@ -128,6 +128,29 @@ As we can interpret from the table below, in this work, we assess five different
 
 From the table, it can be understood that many developed TFLite models are well reached in the limited target of 64 KB memory, and only the LSTM structure exceeds this value because of its tokenizer.
 
+### Emotion Detection
+
+Regarding detecting whether a sentence in the domain of text has what type of emotion, we developed two different models: BERT and LSTM.
+
+For the BERT model, we utilized the ParsBERT embedding space and defined a Dense-CNN classifier on top of it to be trained using our novel dataset. Below, the process of training and the value of accuracy and loss can be seen:
+
+Accuracy over each iteration of training:
+
+![image](https://github.com/user-attachments/assets/1c2ca0ca-fbb0-4278-8d85-df3baa9e6d42)
+
+The value of loss for each iteratoin
+
+![image](https://github.com/user-attachments/assets/71506042-5d7a-4927-abd1-a2a34936bc99)
+
+With the aid of the TFlite converter, we were able to reduce the size of the model to' one-fourth of the initial size or, in other words, 162 MB, but this is beyond our limitation of the embedding system, so we developed an LSTM architecture in its place.
+
+#### LSTM Model to Detect Emotion
+
+
+## Dataset Gathering
+
+One of our works' novel contributions is emotion detection dataset creation. For this dataset, we utilized GPT to generate sentences for each emotion, resulting in more than 6000 Farsi-labeled sentences across 12 different classes. For this reason, we used prompt engineering techniques to make sure that the generated sentences are valid and also unique.
+
 
 ## Related Links
 
