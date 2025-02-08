@@ -97,15 +97,15 @@ Additionally, prior studies on deploying ML models in embedded environments have
         \toprule
         \textbf{Use Case} & \textbf{Dataset} & \textbf{TFLite Model Size} & \textbf{Quality Target} \\
         \midrule
-        Visual Wake Words & Speech Communication (49 $\times$ 10) & & \\
+        Visual Wake Words & VWW Dataset (96 $\times$ 96) & MobileNetV2 (2.4 KB) & 82\% (Top-1) \\
         \midrule
-        Image Classification & VWW Dataset (96 $\times$ 96) & & \\
+        Image Classification & CIFAR 10 (32 $\times$ 32) & TinyML (9 KB) & 85\% (Top-1) \\
         \midrule
-        Keyword Spotting & CIFAR 10 (32 $\times$ 32) & & \\
+        Keyword Spotting & Speech Communication (49 $\times$ 10) & Dense-CNN (53 KB) & 89\% (Top-1) \\
         \midrule
-        Anomaly Detection & ToyADMOS (5 $\times$ 128) & & \\
+        Anomaly Detection & ToyADMOS (5 $\times$ 128) & FC-AutoEncoder (41 KB) & 99\% (Top-1) \\
         \midrule
-        Emotion Detection & & & \\
+        Emotion Detection & Multi-Class Emotional Sentences(ours) (298 $\times$ 12) & LSTM (161 KB) & 89\% (Top-1)\\
         \bottomrule
     \end{tabular}
     }
