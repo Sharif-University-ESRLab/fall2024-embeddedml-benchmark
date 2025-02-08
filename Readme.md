@@ -71,7 +71,7 @@ This project measures how well an STM32 microcontroller can recognize spoken com
 
 - **Flash the Firmware:**
   - Build the project in STM32CubeIDE to generate the firmware binary.
-  - Connect your STM32 board and flash the firmware onto it.
+  - Connect the STM32 board and flash the firmware onto it.
 
 - **Execute the Benchmark:**
   - Reset or power cycle the STM32 board to start running the benchmark.
@@ -120,7 +120,14 @@ Inference Time: 16 ms, Predicted Label: 2
 ...
 ```
 
-Analyze this data to assess the performance of your model on the STM32 microcontroller.
+Analyze this data to assess your model's performance on the STM32 microcontroller.
+
+As we can interpret from the table below, in this work, we assess five different scenarios, targeting different tasks in ML, like speech recognition, anomaly detection, image classification, and lastly, emotion detection in the domain of natural language processing.
+
+![image](https://github.com/user-attachments/assets/4ce2b044-fa08-41f4-ad6d-e81e4e9fe802)
+
+From the table, it can be understood that many developed TFLite models are well reached in the limited target of 64 KB memory, and only the LSTM structure exceeds this value because of its tokenizer.
+
 
 ## Related Links
 
