@@ -15,7 +15,7 @@ def run_inference(interpreter, input_data):
     return output, output_details
 
 def main():
-    model_path = 'Code/SpeechCommandsRecognition/ConvertedModel/speech_commands_model.tflite'
+    model_path = 'ConvertedModel/speech_commands_model.tflite'
     interpreter = tf.lite.Interpreter(model_path=model_path)
     interpreter.allocate_tensors()
 
@@ -65,7 +65,7 @@ def main():
         'dequantized_output': dequantized_output.tolist()
     }
 
-    with open('Code/benchmark_results.json', 'w') as f:
+    with open('Results/benchmark_results.json', 'w') as f:
         json.dump(results, f, indent=4)
 
     print(f"Average Execution Time: {avg_execution_time} seconds")
