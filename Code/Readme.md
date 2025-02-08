@@ -72,3 +72,27 @@ This module is dedicated to training models for keyword spotting tasks.
 - **mk_cal_set.py**: Script to create calibration sets for quantization.
 - **ModelConverter.py**: Script to convert trained models into TensorFlow Lite format.
 - **quantize.py**: Script for model quantization to reduce model size and increase inference speed.
+
+## Usage
+
+To run the project:
+
+1. **Install Dependencies**: Ensure all Python dependencies are installed by running:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Run the Main Script**: Execute the main script to start the benchmarking process:
+
+   ```bash
+   python main.py
+   ```
+
+3. **Access Results**: After execution, results will be saved in the `benchmark_results.txt` file in the main directory.
+
+## Acknowledgments
+
+- TensorFlow Lite for providing the framework for deploying models on embedded devices.
+- STM32CubeMX and STM32CubeIDE for facilitating the development and deployment of models on STM32 microcontrollers.
+- The open-source community for their contributions to machine learning and embedded systems.
