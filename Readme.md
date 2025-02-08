@@ -138,18 +138,52 @@ Accuracy over each iteration of training:
 
 ![image](https://github.com/user-attachments/assets/1c2ca0ca-fbb0-4278-8d85-df3baa9e6d42)
 
-The value of loss for each iteratoin
+The value of loss for each iteration:
 
 ![image](https://github.com/user-attachments/assets/71506042-5d7a-4927-abd1-a2a34936bc99)
 
-With the aid of the TFlite converter, we were able to reduce the size of the model to' one-fourth of the initial size or, in other words, 162 MB, but this is beyond our limitation of the embedding system, so we developed an LSTM architecture in its place.
+With the aid of the TFlite converter, we were able to reduce the size of the model to one-fourth of the initial size or, in other words, 162 MB, but this is beyond our limitation of the embedding system, so we developed an LSTM architecture in its place.
 
 #### LSTM Model to Detect Emotion
+
+For this task, we developed two distinct models, one regular one using a simple tokenizer by defining a dictionary of 2000 maximum vocab, and another using dynamic-learning rate and `sparse_categorical_crossentropy` loss. This model resulted in 82% and 89% accuracy, respectively, which is a promising result for 640 KB and 161 KB models.
+
+Here, the confusion matrix of LSTM architecture can be seen:
+
+![image](https://github.com/user-attachments/assets/fc1725a9-e641-4f85-9458-27b708a142d7)
+
+And we have this result for enhanced architecture:
+
+![image](https://github.com/user-attachments/assets/cc5c4c41-f421-43e2-b0c4-ca71192d8a28)
+
+Furthermore, more detailed information regarding classification is included below:
+
+```txt
+ precision    recall  f1-score   support
+
+           0       0.88      0.76      0.82       110
+           1       0.81      0.84      0.83       102
+           2       0.95      0.86      0.90        97
+           3       0.90      0.97      0.94       104
+           4       0.97      0.96      0.96        95
+           5       0.88      0.98      0.93       100
+           6       0.99      0.94      0.96       113
+           7       0.98      0.92      0.95       104
+           8       0.80      0.73      0.76       101
+           9       0.99      1.00      1.00       103
+          10       0.91      0.92      0.92       100
+          11       0.71      0.85      0.77       105
+
+    accuracy                           0.89      1234
+   macro avg       0.90      0.89      0.89      1234
+weighted avg       0.90      0.89      0.89      1234
+```
+
 
 
 ## Dataset Gathering
 
-One of our works' novel contributions is emotion detection dataset creation. For this dataset, we utilized GPT to generate sentences for each emotion, resulting in more than 6000 Farsi-labeled sentences across 12 different classes. For this reason, we used prompt engineering techniques to make sure that the generated sentences are valid and also unique.
+One of our works' novel contributions is emotion detection dataset creation. For this dataset, we utilized GPT to generate sentences for each emotion, resulting in more than 6000 Farsi-labeled sentences across 12 different classes. For this reason, we used prompt engineering techniques to make sure that the generated sentences were valid and also unique.
 
 
 ## Related Links
