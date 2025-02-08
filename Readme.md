@@ -179,6 +179,21 @@ Furthermore, more detailed information regarding classification is included belo
 weighted avg       0.90      0.89      0.89      1234
 ```
 
+### Anomaly Detection
+
+To understand anomaly behaviors, we developed and trained two distinct architectures, one using a random forest tree and another using FC-AutoEncoder. The random forest tree classifier showed a promising result of 99% in this task; however, its model size exceeds 16 MB, which is beyond the limit to be run on the STM32 chipset. The result of anomy detection is shown below:
+
+![image](https://github.com/user-attachments/assets/933df4c2-7e85-4a94-9549-7eadf43da01d)
+
+Using FC-AutoEncoder, we achieved acceptable results, which is shown here:
+
+![image](https://github.com/user-attachments/assets/eb27c997-1546-4a13-927b-5e560b81868d)
+
+Nevertheless, as shown in the training process, due to the limited size of the model, it is not capable of understanding the meaning and relation between labels and dense feature space.
+
+![image](https://github.com/user-attachments/assets/f236673e-6714-40e1-9e2d-fcd264d21c24)
+
+But its 41 KB size makes it manageable to work with in embedding systems.
 
 
 ## Dataset Gathering
