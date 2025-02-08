@@ -15,7 +15,7 @@ def run_inference(interpreter, input_data):
     return output, output_details
 
 def main():
-    model_path = 'D:/Reposetories/fall2024-embeddedml-benchmark/Code/ConvertedModel/speech_commands_model.tflite'
+    model_path = 'Code/SpeechCommandsRecognition/ConvertedModel/speech_commands_model.tflite'
     interpreter = tf.lite.Interpreter(model_path=model_path)
     interpreter.allocate_tensors()
 

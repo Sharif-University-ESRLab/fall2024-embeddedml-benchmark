@@ -1,7 +1,7 @@
 {
-    "avg_execution_time": 0.0,
-    "avg_memory_usage": 0.01640625,
-    "avg_cpu_usage": 0.7699999999999999,
+    "avg_execution_time": 0.0003557920455932617,
+    "avg_memory_usage": 0.008984375,
+    "avg_cpu_usage": -0.44000000000000006,
     "quantized_output": [
         [
             -1,
