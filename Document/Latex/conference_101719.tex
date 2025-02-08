@@ -14,45 +14,27 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Conference Paper Title*\\
+\title{A Benchmarking Framework for Machine Learning Algorithms on Embedded Devices\\
 
 }
 
-\author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
+\author{\IEEEauthorblockN{Iman Mohammadi}
+\IEEEauthorblockA{\textit{Computer Engineering} \\
+\textit{Sharif University of Technology}\\
+Tehran, Iran \\
+imanm1381@gmail.com}
 \and
-\IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
+\IEEEauthorblockN{Shayan Salehi}
+\IEEEauthorblockA{\textit{Computer Engineering} \\
+\textit{Sharif University of Technology}\\
+Tehran, Iran \\
+s.salehi1381@gmail.com}
 \and
-\IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
-\and
-\IEEEauthorblockN{4\textsuperscript{th} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
-\and
-\IEEEauthorblockN{5\textsuperscript{th} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
-\and
-\IEEEauthorblockN{6\textsuperscript{th} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
+\IEEEauthorblockN{Armin Saghafian}
+\IEEEauthorblockA{\textit{Computer Engineering} \\
+\textit{Sharif University of Technology}\\
+Tehran, Iran\\
+armin.saghafian@gmail.com}
 }
 
 \maketitle
@@ -72,9 +54,7 @@ Despite these advantages, deploying ML models on embedded systems introduces sev
 
 In this work, we propose a benchmarking framework designed to systematically assess the feasibility of running ML models on resource-limited embedded hardware. By converting and optimizing models for execution in constrained environments, we compare various architectures and optimization techniques. Our benchmark evaluates key performance metrics providing insights into the practical deployment of TinyML applications~\cite{warden2018speech, zhang2017hello}.  
 
-Our goal is to establish a standardized benchmarking methodology that enables researchers and developers to make informed decisions when selecting ML models for embedded deployment. The findings from this study will contribute to the advancement of efficient and scalable ML solutions tailored for edge AI applications~\cite{purohit2019mimii, torralba2008tiny}.  
-
-
+Our goal is to establish a standardized benchmarking methodology that enables researchers and developers to make informed decisions when selecting ML models for embedded deployment. The findings from this study will contribute to the advancement of efficient and scalable ML solutions tailored for edge AI applications~\cite{purohit2019mimii, torralba2008tiny}.
 
 \section{Challenges}
 
@@ -91,13 +71,6 @@ Another critical issue is \textit{computational constraints}. Unlike high-perfor
 Lastly, \textit{software and toolchain fragmentation} creates additional challenges. TinyML models are deployed using a range of frameworks, including TensorFlow Lite Micro, CMSIS-NN, and vendor-specific SDKs. Differences in compiler optimizations, quantization techniques, and runtime environments lead to inconsistencies in performance measurements. A robust benchmarking framework must account for these variations and provide a methodology that ensures fair and reproducible results.
 
 Overcoming these challenges requires a combination of model optimization techniques, efficient execution strategies, and a standardized benchmarking approach. In this work, we address these issues by evaluating ML models under real-world constraints and proposing a structured framework for benchmarking their performance in embedded environments.
-
-
-
-
-
-
- 
 
 \section{Related Works}
 
