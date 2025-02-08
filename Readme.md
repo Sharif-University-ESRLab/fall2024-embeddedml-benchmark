@@ -132,3 +132,5 @@ Analyze this data to assess the performance of your model on the STM32 microcont
 - [Iman Mohammadi](https://github.com/Imanm02)
 - [Shayan Salehi](https://github.com/ShayanSalehi81)
 - [Armin Saghafian](https://github.com/ArminS03)
+
+Special Thanks to [Ali Salesi](https://github.com/alisalc)
