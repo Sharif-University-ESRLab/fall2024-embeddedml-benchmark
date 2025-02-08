@@ -1,6 +1,6 @@
 ![Logo](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Logo.jpg)
 
-# Embedded ML Benchmark
+# A Benchmarking Framework for Machine Learning Algorithms on Embedded Devices
 
 This project measures how well an STM32 microcontroller can recognize spoken commands. It checks how fast the device processes information, how much memory it uses, and how much power it consumes.
 
