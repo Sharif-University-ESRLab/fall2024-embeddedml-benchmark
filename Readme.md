@@ -81,7 +81,44 @@ This project measures how well an STM32 microcontroller can recognize spoken com
   - **Memory Usage:** Check the compiled binary size and runtime memory usage.
   - **Power Consumption:** Review the power usage data collected during inference operations.
 
-## How to Run
+## Setting Up the Development Environment
+
+#### Firmware Deployment with Keil uVision5
+
+1. **Open the Keil Project:**
+   - Launch Keil uVision5.
+   - In Keil, navigate to **Project > Open Project...** and open the project file located in the `Code/STM32` folder (e.g., `RUN.uvprojx`).
+
+2. **Configure the Target Device:**
+   - Ensure the target device is set to an STM32F103 series microcontroller.
+   - Verify that the project settings (clock configuration, memory size, etc.) match your STM32 board.
+
+3. **Build the Project:**
+   - Click on the **Build** button to compile the firmware.
+   - Resolve any configuration issues that might arise during the build process.
+
+4. **Flash the Firmware:**
+   - Connect your STM32F103 board to your PC via the ST-Link programmer.
+   - In Keil uVision5, use the **Download** option to flash the generated binary onto your board.
+   - After flashing, reset or power cycle the board to start the application.
+
+#### Simulation Environment for Python Scripts
+
+1. **Install Python and Dependencies:**
+   - Ensure that Python 3.x is installed on your system.
+   - Open a command prompt in the repository’s root directory.
+   - Install required Python packages using:
+     ```bash
+     pip install -r Code/requirements.txt
+     ```
+
+2. **Run Simulation Scripts:**
+   - To validate the model conversion or simulate inference on your computer, navigate to the appropriate folder (e.g., `Code`).
+   - Execute simulation scripts such as:
+     ```bash
+     python ValidateTFModel.py
+     ```
+   - These scripts will run the TensorFlow Lite model in a simulated environment and output performance metrics and inference results.
 
 ## Results
 
@@ -157,7 +194,6 @@ Nevertheless, as shown in the training process, due to the limited size of the m
 ![image](https://github.com/user-attachments/assets/f236673e-6714-40e1-9e2d-fcd264d21c24)
 
 But its 41 KB size makes it manageable to work with in embedding systems.
-
 
 ## Dataset Gathering
 
