@@ -8,14 +8,13 @@ This project measures how well an STM32 microcontroller can recognize spoken com
 
 **Hardware:**
 
-- **STM32 Development Board:** We used the STM32F103R8 series.
-- **Audio Input:** A microphone or pre-recorded audio samples for testing.
+- **STM32 Development Board:** A STM32F103C8 Board
+-  **ST-Link programmer** for flashing the firmware
 
 **Software:**
 
 - **Development Tools:**
-  - **STM32CubeIDE:** An integrated development environment for STM32 microcontrollers.
-  - **STM32Cube.AI:** A tool to convert and optimize neural network models for STM32 devices.
+  - **Keil uVision5** (ARM uVision 5, version 5.x)
 - **Libraries:**
   - **TensorFlow Lite for Microcontrollers:** A lightweight version of TensorFlow designed for microcontroller environments.
 - **Other Tools:**
