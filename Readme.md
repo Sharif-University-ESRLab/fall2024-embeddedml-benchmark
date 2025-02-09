@@ -26,10 +26,10 @@ This project measures how well an STM32 microcontroller can recognize spoken com
 **1. Model Preparation and Conversion**
 
 - **Convert the Model to TensorFlow Lite Format:**
-  - We use a script (`ModelConverter.py`) to convert our trained model into the TensorFlow Lite format (`.tflite`).
+  - Script (`ModelConverter.py`) to convert our trained model into the TensorFlow Lite format (`.tflite`).
 
 - **Validate the TensorFlow Lite Model:**
-  - Use a validation script (e.g., `ValidateTFModel.py`) to ensure the converted model works correctly.
+  - Validation script (`ValidateTFModel.py`) to ensure the converted model works correctly.
 
 **2. Setting Up the STM32 Environment**
 
