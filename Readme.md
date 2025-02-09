@@ -183,6 +183,15 @@ And finally, the execution time over iterations:
 
 ![image](https://github.com/user-attachments/assets/237c0567-a871-4cdb-ad58-842ac8bb1eb1)
 
+## Additional Notes
+
+- **Firmware Development:**
+  - In this project, we used a converted TFLite model (via `xxd`) embedded as a C header (`model_data.h`). No external AI libraries are imported in the firmware code.
+  - Then in the project’s source files (`Runner.c`) we referenced `model_data.h`.
+
+- **Simulation:**
+  - The Python simulation helps in validating the TFLite model performance before deploying it on hardware.
+  - To analyze memory usage, CPU time, and inference latency, we used a python script for each project.
 
 ## Related Links
 
