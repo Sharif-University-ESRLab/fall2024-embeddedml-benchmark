@@ -234,6 +234,7 @@ And finally, the execution time over iterations:
 - [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
 - [STM32Cube.AI](https://www.st.com/en/development-tools/stm32cubeai.html)
 - [TensorFlow Lite for Microcontrollers](https://www.tensorflow.org/lite/microcontrollers)
+- [MLPerf Tiny Benchmark](https://arxiv.org/abs/2106.07597)
 
 ## Authors
 - [Iman Mohammadi](https://github.com/Imanm02)
