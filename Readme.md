@@ -2,7 +2,7 @@
 
 # A Benchmarking Framework for Machine Learning Algorithms on Embedded Devices
 
-This project measures how well an STM32 microcontroller can recognize spoken commands. It checks how fast the device processes information, how much memory it uses, and how much power it consumes.
+This project measures how well an STM32 microcontroller can recognize spoken commands. It checks how fast the device processes information, how much memory it uses, and how much power it consumes. Finally, we offer a clear and simple benchmark that evaluates how different machine learning algorithms perform on an STM32 microcontroller, showing their processing speed, memory usage, and power consumption in a resource-limited environment.
 
 ## Tools
 
@@ -26,7 +26,7 @@ This project measures how well an STM32 microcontroller can recognize spoken com
 **1. Model Preparation and Conversion**
 
 - **Convert the Model to TensorFlow Lite Format:**
-  - Use a script (e.g., `ModelConverter.py`) to convert your trained model into the TensorFlow Lite format (`.tflite`).
+  - We use a script (`ModelConverter.py`) to convert our trained model into the TensorFlow Lite format (`.tflite`).
 
 - **Validate the TensorFlow Lite Model:**
   - Use a validation script (e.g., `ValidateTFModel.py`) to ensure the converted model works correctly.
