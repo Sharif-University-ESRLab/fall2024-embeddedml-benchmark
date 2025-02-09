@@ -82,46 +82,9 @@ This project measures how well an STM32 microcontroller can recognize spoken com
   - **Memory Usage:** Check the compiled binary size and runtime memory usage.
   - **Power Consumption:** Review the power usage data collected during inference operations.
 
-**Example Serial Output:**
-
-```
-Inference Time: 15 ms, Predicted Label: 3
-Inference Time: 14 ms, Predicted Label: 7
-Inference Time: 16 ms, Predicted Label: 2
-...
-```
-
 ## How to Run
 
-**Build the Project:**
-
-In STM32CubeIDE, build your project to generate the firmware binary.
-
-**Flash the Firmware:**
-
-Connect your STM32 board to your computer.
-
-Use STM32CubeIDE to flash the generated firmware onto the board.
-
-**Run the Benchmark:**
-
-After flashing, reset or power cycle the STM32 board.
-
-Open a serial terminal (e.g., PuTTY, Tera Term) and connect to the appropriate COM port to view the output.
-
-
 ## Results
-
-After running the benchmark, you should observe output similar to the following in your serial terminal:
-
-```
-Inference Time: 15 ms, Predicted Label: 3
-Inference Time: 14 ms, Predicted Label: 7
-Inference Time: 16 ms, Predicted Label: 2
-...
-```
-
-Analyze this data to assess your model's performance on the STM32 microcontroller.
 
 As we can interpret from the table below, in this work, we assess five different scenarios, targeting different tasks in ML, like speech recognition, anomaly detection, image classification, and lastly, emotion detection in the domain of natural language processing.
 
