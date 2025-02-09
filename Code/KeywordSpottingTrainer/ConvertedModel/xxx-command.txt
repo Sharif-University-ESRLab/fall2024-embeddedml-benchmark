@@ -2,4 +2,4 @@ xxd -i speech_commands_model_float32.tflite model_data.h
 
 This command uses the utility xxd to convert the binary file speech_commands_model_float32.tflite into a C header file named model_data.h.
 The -i option tells xxd to output in C include file style, which creates a C array containing the binary data from the model along with a variable that holds its length.
-This allows you to embed the model directly into your source code without needing to load it from external storage at runtime.
+This allows us to embed the model directly into the source code without needing to load it from external storage at runtime. Needed for running ML code on STM32!
