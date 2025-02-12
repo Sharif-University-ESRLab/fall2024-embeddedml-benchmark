@@ -142,10 +142,13 @@ Cortex-M Target Driver Setup, Debug Menu:
     src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic5.jpg">
 </div>
 
-<figure style="text-align: center;">
-    <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic6.jpg" alt="Cortex-M Target Driver Setup, Flash Download Menu" style="width: 1000px;">
-    <figcaption>Cortex-M Target Driver Setup, Flash Download Menu</figcaption>
-</figure>
+Cortex-M Target Driver Setup, Flash Downlaod Menu:
+
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic6.jpg">
+</div>
 
 **3. Building and Flashing the Firmware**  
 - **Build the Project:** In Keil uVision5, navigate to **Project > Open Project...** to load your project, then click the **Build** button to compile the firmware.
@@ -177,7 +180,11 @@ Cortex-M Target Driver Setup, Debug Menu:
 
 As we can interpret from the table below, in this work, we assess five different scenarios, targeting different tasks in ML, like speech recognition, anomaly detection, image classification, and lastly, emotion detection in the domain of natural language processing.
 
-![image](https://github.com/user-attachments/assets/4ce2b044-fa08-41f4-ad6d-e81e4e9fe802)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/user-attachments/assets/4ce2b044-fa08-41f4-ad6d-e81e4e9fe802">
+</div>
 
 From the table, it can be understood that many developed TFLite models are well reached in the limited target of 64 KB memory, and only the LSTM structure exceeds this value because of its tokenizer.
 
@@ -189,11 +196,19 @@ For the BERT model, we utilized the ParsBERT embedding space and defined a Dense
 
 Accuracy over each iteration of training:
 
-![image](https://github.com/user-attachments/assets/1c2ca0ca-fbb0-4278-8d85-df3baa9e6d42)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/user-attachments/assets/1c2ca0ca-fbb0-4278-8d85-df3baa9e6d42">
+</div>
 
 The value of loss for each iteration:
 
-![image](https://github.com/user-attachments/assets/71506042-5d7a-4927-abd1-a2a34936bc99)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/user-attachments/assets/71506042-5d7a-4927-abd1-a2a34936bc99">
+</div>
 
 With the aid of the TFlite converter, we were able to reduce the size of the model to one-fourth of the initial size or, in other words, 162 MB, but this is beyond our limitation of the embedding system, so we developed an LSTM architecture in its place.
 
@@ -203,11 +218,19 @@ For this task, we developed two distinct models, one regular one using a simple 
 
 Here, the confusion matrix of LSTM architecture can be seen:
 
-![image](https://github.com/user-attachments/assets/fc1725a9-e641-4f85-9458-27b708a142d7)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/user-attachments/assets/fc1725a9-e641-4f85-9458-27b708a142d7">
+</div>
 
 And we have this result for enhanced architecture:
 
-![image](https://github.com/user-attachments/assets/cc5c4c41-f421-43e2-b0c4-ca71192d8a28)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/user-attachments/assets/cc5c4c41-f421-43e2-b0c4-ca71192d8a28">
+</div>
 
 Furthermore, more detailed information regarding classification is included below:
 
@@ -236,15 +259,27 @@ weighted avg       0.90      0.89      0.89      1234
 
 To understand anomaly behaviors, we developed and trained two distinct architectures, one using a random forest tree and another using FC-AutoEncoder. The random forest tree classifier showed a promising result of 99% in this task; however, its model size exceeds 16 MB, which is beyond the limit to be run on the STM32 chipset. The result of anomy detection is shown below:
 
-![image](https://github.com/user-attachments/assets/933df4c2-7e85-4a94-9549-7eadf43da01d)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/user-attachments/assets/933df4c2-7e85-4a94-9549-7eadf43da01d">
+</div>
 
 Using FC-AutoEncoder, we achieved acceptable results, which is shown here:
 
-![image](https://github.com/user-attachments/assets/eb27c997-1546-4a13-927b-5e560b81868d)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/user-attachments/assets/eb27c997-1546-4a13-927b-5e560b81868d">
+</div>
 
 Nevertheless, as shown in the training process, due to the limited size of the model, it is not capable of understanding the meaning and relation between labels and dense feature space.
 
-![image](https://github.com/user-attachments/assets/f236673e-6714-40e1-9e2d-fcd264d21c24)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/user-attachments/assets/f236673e-6714-40e1-9e2d-fcd264d21c24">
+</div>
 
 But its 41 KB size makes it manageable to work with in embedding systems.
 
@@ -258,19 +293,35 @@ For the simulation process, we utilized the TFLite model to get the result. We a
 
 The CPU usage during iterations:
 
-![image](https://github.com/user-attachments/assets/34d538e4-39c3-417e-9588-a9f8f99f3812)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/user-attachments/assets/34d538e4-39c3-417e-9588-a9f8f99f3812">
+</div>
 
 The Memory Usage:
 
-![image](https://github.com/user-attachments/assets/2ee29c3c-012d-407d-9034-5e36fcb75bc7)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/user-attachments/assets/2ee29c3c-012d-407d-9034-5e36fcb75bc7">
+</div>
 
 The measured outputs of the TFLite model:
 
-![image](https://github.com/user-attachments/assets/c2cd8bac-cdd7-45da-ac96-c5886438e55a)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/user-attachments/assets/c2cd8bac-cdd7-45da-ac96-c5886438e55a">
+</div>
 
 And finally, the execution time over iterations:
 
-![image](https://github.com/user-attachments/assets/237c0567-a871-4cdb-ad58-842ac8bb1eb1)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/user-attachments/assets/237c0567-a871-4cdb-ad58-842ac8bb1eb1">
+</div>
 
 ## Additional Notes
 
