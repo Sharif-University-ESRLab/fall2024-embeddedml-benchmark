@@ -112,11 +112,19 @@ Keil uVision5 Board Menu:
 
 Keil uVision5 Manage Run-Time Environment Menu:
 
-![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic2.jpg)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic2.jpg">
+</div>
 
 Run-Time Environment Config:
 
-![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic3.jpg)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic3.jpg">
+</div>
 
 Project Structure:
 
@@ -128,11 +136,16 @@ Project Structure:
 
 Cortex-M Target Driver Setup, Debug Menu:
 
-![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic5.jpg)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic5.jpg">
+</div>
 
-Cortex-M Target Driver Setup, Flash Downlaod Menu:
-
-![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic6.jpg)
+<figure style="text-align: center;">
+    <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic6.jpg" alt="Cortex-M Target Driver Setup, Flash Download Menu" style="width: 1000px;">
+    <figcaption>Cortex-M Target Driver Setup, Flash Download Menu</figcaption>
+</figure>
 
 **3. Building and Flashing the Firmware**  
 - **Build the Project:** In Keil uVision5, navigate to **Project > Open Project...** to load your project, then click the **Build** button to compile the firmware.
