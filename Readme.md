@@ -83,24 +83,32 @@ This project measures how well an STM32 microcontroller can recognize spoken com
 
 ## Setting Up the Development Environment
 
-#### Firmware Deployment with Keil uVision5
+#### Implementation and Deployment with Keil uVision5
 
-1. **Open the Keil Project:**
-   - Launch Keil uVision5.
-   - In Keil, navigate to **Project > Open Project...** and open the project file located in the `Code/STM32` folder (e.g., `RUN.uvprojx`).
+**1. Model Preparation and Conversion**  
+- Convert trained model to TensorFlow Lite format using `ModelConverter.py`.  
+- Validate the TensorFlow Lite model with `ValidateTFModel.py`.  
+- Convert the `.tflite` model into a C header file using the command:  
+  ```bash
+  xxd -i speech_commands_model_float32.tflite model_data.h
+  ```
+  This embeds the model data directly into firmware.
 
-2. **Configure the Target Device:**
-   - Ensure the target device is set to an STM32F103 series microcontroller.
-   - Verify that the project settings (clock configuration, memory size, etc.) match your STM32 board.
+**2. Firmware Development in Keil uVision5**  
+- Open the Keil project file (e.g., `RUN.uvprojx`) located in the `Code/STM32` folder.  
+- Configure the target device as an STM32F103 microcontroller, ensuring clock and memory settings match the board.
+- In the main source file (e.g., `Runner.c`), implement code to:
+  - Capture audio data.
+  - Run inference using the embedded model from `model_data.h`.
+  - Measure and print inference time and predicted labels to a serial terminal.
 
-3. **Build the Project:**
-   - Click on the **Build** button to compile the firmware.
-   - Resolve any configuration issues that might arise during the build process.
+**3. Building and Flashing the Firmware**  
+- **Build the Project:** In Keil uVision5, navigate to **Project > Open Project...** to load your project, then click the **Build** button to compile the firmware.
+- **Flash the Firmware:** Connect the STM32F103 board via ST-Link, and use the **Download** option to flash the firmware. After flashing, reset or power cycle the board to start the benchmark application.
 
-4. **Flash the Firmware:**
-   - Connect your STM32F103 board to your PC via the ST-Link programmer.
-   - In Keil uVision5, use the **Download** option to flash the generated binary onto your board.
-   - After flashing, reset or power cycle the board to start the application.
+**4. Running the Benchmark**  
+- Open a serial terminal (e.g., PuTTY, Tera Term) to monitor the output from the STM32F103 board.
+- The device will print inference times and predicted labels, this allows analyzing performance metrics such as inference latency, memory usage, and power consumption.
 
 #### Simulation Environment for Python Scripts
 
