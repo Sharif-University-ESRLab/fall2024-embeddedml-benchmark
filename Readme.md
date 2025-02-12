@@ -104,7 +104,11 @@ This project measures how well an STM32 microcontroller can recognize spoken com
 
 Keil uVision5 Board Menu:
 
-![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic1.jpg)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic1.jpg">
+</div>
 
 Keil uVision5 Manage Run-Time Environment Menu:
 
@@ -116,13 +120,17 @@ Run-Time Environment Config:
 
 Project Structure:
 
-![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic4.jpg)
+<div align="center">
+  <img 
+    style="width: 1000px;"
+    src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic4.jpg">
+</div>
 
-Pic5:
+Cortex-M Target Driver Setup, Debug Menu:
 
 ![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic5.jpg)
 
-Pic6:
+Cortex-M Target Driver Setup, Flash Downlaod Menu:
 
 ![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic6.jpg)
 
