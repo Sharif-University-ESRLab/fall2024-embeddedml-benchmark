@@ -102,6 +102,30 @@ This project measures how well an STM32 microcontroller can recognize spoken com
   - Run inference using the embedded model from `model_data.h`.
   - Measure and print inference time and predicted labels to a serial terminal.
 
+Pic1:
+
+![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic1.jpg)
+
+Pic2:
+
+![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic2.jpg)
+
+Pic3:
+
+![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic3.jpg)
+
+Pic4:
+
+![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic4.jpg)
+
+Pic5:
+
+![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic5.jpg)
+
+Pic6:
+
+![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic6.jpg)
+
 **3. Building and Flashing the Firmware**  
 - **Build the Project:** In Keil uVision5, navigate to **Project > Open Project...** to load your project, then click the **Build** button to compile the firmware.
 - **Flash the Firmware:** Connect the STM32F103 board via ST-Link, and use the **Download** option to flash the firmware. After flashing, reset or power cycle the board to start the benchmark application.
