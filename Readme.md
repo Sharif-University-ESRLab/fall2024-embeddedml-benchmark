@@ -102,19 +102,19 @@ This project measures how well an STM32 microcontroller can recognize spoken com
   - Run inference using the embedded model from `model_data.h`.
   - Measure and print inference time and predicted labels to a serial terminal.
 
-Pic1:
+Keil uVision5 Board Menu:
 
 ![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic1.jpg)
 
-Pic2:
+Keil uVision5 Manage Run-Time Environment Menu:
 
 ![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic2.jpg)
 
-Pic3:
+Run-Time Environment Config:
 
 ![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic3.jpg)
 
-Pic4:
+Project Structure:
 
 ![image](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic4.jpg)
 
