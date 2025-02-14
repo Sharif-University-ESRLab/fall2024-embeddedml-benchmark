@@ -11,7 +11,6 @@
 - [Results](#results)
   - [Emotion Detection](#emotion-detection)
   - [Anomaly Detection](#anomaly-detection)
-- [Dataset Gathering](#dataset-gathering)
 - [Simulation Process](#simulation-process)
 - [Additional Notes](#additional-notes)
 - [Related Links](#related-links)
@@ -213,36 +212,24 @@ But its 41 KB size makes it manageable to work with in embedded systems.
 
 For the simulation process, we utilized the TFLite model to get the result. We analyzed and monitored the memory usage, CPU time, execution time, and outputs, and we were able to produce results iteratively in each area of measurement. the result is as follows.
 
-The CPU usage during iterations:
-
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/user-attachments/assets/34d538e4-39c3-417e-9588-a9f8f99f3812">
+  <img src="https://github.com/user-attachments/assets/34d538e4-39c3-417e-9588-a9f8f99f3812" width="1000">
+  <p><b>The CPU usage during iterations</b></p>
 </div>
 
-The Memory Usage:
-
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/user-attachments/assets/2ee29c3c-012d-407d-9034-5e36fcb75bc7">
+  <img src="https://github.com/user-attachments/assets/2ee29c3c-012d-407d-9034-5e36fcb75bc7" width="1000">
+  <p><b>The Memory Usage</b></p>
 </div>
 
-The measured outputs of the TFLite model:
-
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/user-attachments/assets/c2cd8bac-cdd7-45da-ac96-c5886438e55a">
+  <img src="https://github.com/user-attachments/assets/c2cd8bac-cdd7-45da-ac96-c5886438e55a" width="1000">
+  <p><b>The measured outputs of the TFLite model</b></p>
 </div>
 
-And finally, Execution time across iterations:
-
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/user-attachments/assets/237c0567-a871-4cdb-ad58-842ac8bb1eb1">
+  <img src="https://github.com/user-attachments/assets/237c0567-a871-4cdb-ad58-842ac8bb1eb1" width="1000">
+  <p><b>Execution time across iterations</b></p>
 </div>
 
 ## Additional Notes
