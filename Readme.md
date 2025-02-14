@@ -116,7 +116,7 @@ This project benchmarks the performance of the STM32F103 microcontroller in runn
 As we can interpret from the table below, in this work, we assess five different scenarios, targeting different tasks in ML, like speech recognition, anomaly detection, image classification, and lastly, emotion detection in the domain of natural language processing.
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/4ce2b044-fa08-41f4-ad6d-e81e4e9fe802" width="1000">
+  <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Overview.jpg" width="1000">
   <p><b>Overall results for each scenario</b></p>
 </div>
 
