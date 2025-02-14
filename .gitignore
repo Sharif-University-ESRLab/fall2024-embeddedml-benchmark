@@ -2,3 +2,7 @@
 .vscode/launch.json
 .vscode/settings.json
 Code/EmotionDetection/Models/parsbert_emotion_model.tflite
+__pycache__/
+*.pyc
+venv/
+env/
