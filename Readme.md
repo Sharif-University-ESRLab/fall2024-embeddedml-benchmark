@@ -23,67 +23,7 @@ This project evaluates how well the STM32F103 microcontroller can handle various
 
 ## Implementation Details
 
-**1. Model Preparation and Conversion**
-
-- **Convert the Model to TensorFlow Lite Format:**
-  - Script (`ModelConverter.py`) to convert our trained model into the TensorFlow Lite format (`.tflite`).
-
-- **Validate the TensorFlow Lite Model:**
-  - Validation script (`ValidateTFModel.py`) to ensure the converted model works correctly.
-
-**2. Setting Up the STM32 Environment**
-
-- **Install STM32CubeIDE:**
-  - Download and install STM32CubeIDE from the [STMicroelectronics website](https://www.st.com/en/development-tools/stm32cubeide.html).
-
-- **Install STM32Cube.AI:**
-  - Within STM32CubeIDE, install the STM32Cube.AI plugin to enable model conversion and optimization features.
-
-**3. Deploying the Model to STM32**
-
-- **Convert the TensorFlow Lite Model to C Code:**
-  - Open STM32CubeIDE and switch to the STM32Cube.AI perspective.
-  - Select your `.tflite` model file.
-  - STM32Cube.AI will generate optimized C code from the model.
-
-- **Create a New STM32 Project:**
-  - In STM32CubeIDE, create a new project for your specific STM32 board.
-  - Add the generated C files from STM32Cube.AI to your project.
-  - Configure necessary peripherals (e.g., ADC, I2S) for audio input.
-  - Use the generated API to load the model and perform inference.
-
-**4. Implementing the Benchmark Test**
-
-- **Develop Inference Code:**
-  - Write the main application code (e.g., in `runner.c`) to:
-    - Capture audio data.
-    - Preprocess the data as required by the model.
-    - Run inference using the model.
-    - Record performance metrics.
-
-- **Measure Performance Metrics:**
-  - **Inference Latency:** Measure the time taken to perform a single inference.
-  - **Memory Usage:** Monitor RAM and Flash usage to ensure they are within the STM32's constraints.
-  - **Power Consumption:** Use tools like ST-Link's power profiling feature or external hardware to assess power usage during inference.
-
-**5. Running and Analyzing the Benchmark**
-
-- **Flash the Firmware:**
-  - Build the project in STM32CubeIDE to generate the firmware binary.
-  - Connect the STM32 board and flash the firmware onto it.
-
-- **Execute the Benchmark:**
-  - Reset or power cycle the STM32 board to start running the benchmark.
-  - Use a serial terminal (e.g., PuTTY, Tera Term) to view the printed inference times and predicted labels.
-
-- **Analyze Data:**
-  - **Inference Latency:** Calculate the average, minimum, and maximum inference times from the serial output.
-  - **Memory Usage:** Check the compiled binary size and runtime memory usage.
-  - **Power Consumption:** Review the power usage data collected during inference operations.
-
-## Setting Up the Development Environment
-
-#### Implementation and Deployment with Keil uVision5
+#### Deployment with Keil uVision5
 
 **1. Model Preparation and Conversion**  
 - Convert trained model to TensorFlow Lite format using `ModelConverter.py`.  
