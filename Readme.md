@@ -11,6 +11,8 @@
 - [Scenarios](#scenarios)
   - [Emotion Detection](#emotion-detection)
   - [Anomaly Detection](#anomaly-detection)
+  - [ImageClassification](#image-classification)
+  - [KeywordSpotting](#keyword-spotting)
 - [Simulation Process](#simulation-process)
 - [Additional Notes](#additional-notes)
 - [Related Links](#related-links)
@@ -205,6 +207,14 @@ Nevertheless, as shown in the training process, due to the limited size of the m
 </div>
 
 But its 41 KB size makes it manageable to work with in embedded systems.
+
+### Image Classification
+
+
+
+### Keyword Spotting
+
+
 
 ## Simulation Process
 
