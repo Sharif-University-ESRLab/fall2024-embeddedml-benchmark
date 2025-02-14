@@ -2,7 +2,7 @@
 
 # A Benchmarking Framework for Machine Learning Algorithms on Embedded Devices
 
-This project measures how well an STM32 microcontroller can recognize spoken commands. It checks how fast the device processes information, how much memory it uses, and how much power it consumes. Finally, we offer a clear and simple benchmark that evaluates how different machine learning algorithms perform on an STM32 microcontroller, showing their processing speed, memory usage, and power consumption in a resource-limited environment.
+This project evaluates how well the STM32F103 microcontroller can handle various machine learning tasks, including keyword spotting, image classification, anomaly detection, and emotion recognition. We prepared and converted trained models into optimized formats for deployment on the microcontroller, measuring their performance in real-time scenarios. The goal is to benchmark inference speed, memory usage, and power consumption to understand the feasibility of running machine learning models on resource-constrained embedded systems. We used Keil uVision5 for firmware development and provided a Python-based simulation environment for validating models before deployment. This work helps assess the practical applications of machine learning on low-power embedded devices.
 
 ## Tools
 
