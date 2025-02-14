@@ -48,7 +48,7 @@ This project benchmarks the performance of the STM32F103 microcontroller in runn
   ```
   This embeds the model data directly into firmware.
 
-#### 2. Firmware Development in Keil uVision5**
+#### 2. Firmware Development in Keil uVision5
 - Open the Keil project file (e.g., `RUN.uvprojx`) located in the `Code/STM32` folder.
 - Configure the target device as an STM32F103 microcontroller, ensuring clock and memory settings match the board.
 - In the main source file (e.g., `Runner.c`), implement code to:
@@ -56,75 +56,45 @@ This project benchmarks the performance of the STM32F103 microcontroller in runn
   - Run inference using the embedded model from `model_data.h`.
   - Measure and print inference time and predicted labels to a serial terminal.
 
-![Keil uVision5 Board Menu](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic1.jpg)
-
-![Keil uVision5 Manage Run-Time Environment Menu](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic2.jpg)
-
-![Run-Time Environment Config](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic3.jpg)
-
-![Project Structure](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic4.jpg)
-
-![Cortex-M Target Driver Setup, Debug Menu](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic5.jpg)
-
-![Cortex-M Target Driver Setup, Flash Download Menu](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic6.jpg)
-
-Keil uVision5 Board Menu:
-
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic1.jpg">
+  <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic1.jpg" width="1000">
+  <p><b>Keil uVision5 Board Menu</b></p>
 </div>
 
-Keil uVision5 Manage Run-Time Environment Menu:
-
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic2.jpg">
+  <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic2.jpg" width="1000">
+  <p><b>Keil uVision5 Manage Run-Time Environment Menu</b></p>
 </div>
 
-Run-Time Environment Config:
-
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic3.jpg">
+  <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic3.jpg" width="1000">
+  <p><b>Run-Time Environment Config</b></p>
 </div>
 
-Project Structure:
-
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic4.jpg">
+  <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic4.jpg" width="1000">
+  <p><b>Project Structure</b></p>
 </div>
 
-Cortex-M Target Driver Setup, Debug Menu:
-
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic5.jpg">
+  <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic5.jpg" width="1000">
+  <p><b>Cortex-M Target Driver Setup, Debug Menu</b></p>
 </div>
 
-Cortex-M Target Driver Setup, Flash Download Menu:
-
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic6.jpg">
+  <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic6.jpg" width="1000">
+  <p><b>Cortex-M Target Driver Setup, Flash Download Menu</b></p>
 </div>
 
-**3. Building and Flashing the Firmware**  
+#### 3. Building and Flashing the Firmware
 - **Build the Project:** In Keil uVision5, navigate to **Project > Open Project...** to load your project, then click the **Build** button to compile the firmware.
 - **Flash the Firmware:** Connect the STM32F103 board via ST-Link, and use the **Download** option to flash the firmware. After flashing, reset or power cycle the board to start the benchmark application.
 
-**4. Running the Benchmark**  
+#### 4. Running the Benchmark
 - Open a serial terminal (e.g., PuTTY, Tera Term) to monitor the output from the STM32F103 board.
 - The device will print inference times and predicted labels, this allows analyzing performance metrics such as inference latency, memory usage, and power consumption.
 
-#### Simulation Environment for Python Scripts
+### Simulation Environment for Python Scripts
 
 1. **Install Python and Dependencies:**
    - Ensure that Python 3.x is installed on your system.
