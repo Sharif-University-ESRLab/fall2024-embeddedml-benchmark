@@ -116,9 +116,8 @@ This project benchmarks the performance of the STM32F103 microcontroller in runn
 As we can interpret from the table below, in this work, we assess five different scenarios, targeting different tasks in ML, like speech recognition, anomaly detection, image classification, and lastly, emotion detection in the domain of natural language processing.
 
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/user-attachments/assets/4ce2b044-fa08-41f4-ad6d-e81e4e9fe802">
+  <img src="https://github.com/user-attachments/assets/4ce2b044-fa08-41f4-ad6d-e81e4e9fe802" width="1000">
+  <p><b>Overall results for each scenario</b></p>
 </div>
 
 From the table, it can be understood that many developed TFLite models are well reached in the limited target of 64 KB memory, and only the LSTM structure exceeds this value because of its tokenizer.
@@ -201,9 +200,8 @@ Using FC-AutoEncoder, we achieved acceptable results, which is shown below:
 Nevertheless, as shown in the training process, due to the limited size of the model, it is not capable of understanding the meaning and relation between labels and dense feature space.
 
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/user-attachments/assets/f236673e-6714-40e1-9e2d-fcd264d21c24">
+  <img src="https://github.com/user-attachments/assets/f236673e-6714-40e1-9e2d-fcd264d21c24" width="1000">
+  <p><b>Limited model size restricts learning, causing minimal loss improvement</b></p>
 </div>
 
 But its 41 KB size makes it manageable to work with in embedded systems.
