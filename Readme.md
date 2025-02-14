@@ -2,7 +2,7 @@
 
 # A Benchmarking Framework for Machine Learning Algorithms on Embedded Devices
 
-This project evaluates how well the STM32F103 microcontroller can handle various machine learning tasks, including keyword spotting, image classification, anomaly detection, and emotion recognition. We prepared and converted trained models into optimized formats for deployment on the microcontroller, measuring their performance in real-time scenarios. The goal is to benchmark inference speed, memory usage, and power consumption to understand the feasibility of running machine learning models on resource-constrained embedded systems. We used Keil uVision5 for firmware development and provided a Python-based simulation environment for validating models before deployment. This work helps assess the practical applications of machine learning on low-power embedded devices.
+This project benchmarks the performance of the STM32F103 microcontroller in running machine learning models for keyword spotting, image classification, anomaly detection, and emotion recognition. We convert models into optimized formats and analyze inference speed, memory usage, and power consumption to assess their feasibility on embedded systems. We used Keil uVision5 for firmware development and provided a Python-based simulation environment for validating models before deployment. This work helps assess the practical applications of machine learning on low-power embedded devices.
 
 ## Tools
 
@@ -82,7 +82,7 @@ Cortex-M Target Driver Setup, Debug Menu:
     src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic5.jpg">
 </div>
 
-Cortex-M Target Driver Setup, Flash Downlaod Menu:
+Cortex-M Target Driver Setup, Flash Download Menu:
 
 <div align="center">
   <img 
@@ -150,7 +150,7 @@ The value of loss for each iteration:
     src="https://github.com/user-attachments/assets/71506042-5d7a-4927-abd1-a2a34936bc99">
 </div>
 
-With the aid of the TFlite converter, we were able to reduce the size of the model to one-fourth of the initial size or, in other words, 162 MB, but this is beyond our limitation of the embedding system, so we developed an LSTM architecture in its place.
+With the aid of the TFlite converter, we were able to reduce the size of the model to one-fourth of the initial size or, in other words, 162 MB, but this is beyond our limitation of the embedded system, so we developed an LSTM architecture in its place.
 
 #### LSTM Model to Detect Emotion
 
@@ -197,7 +197,7 @@ weighted avg       0.90      0.89      0.89      1234
 
 ### Anomaly Detection
 
-To understand anomaly behaviors, we developed and trained two distinct architectures, one using a random forest tree and another using FC-AutoEncoder. The random forest tree classifier showed a promising result of 99% in this task; however, its model size exceeds 16 MB, which is beyond the limit to be run on the STM32 chipset. The result of anomy detection is shown below:
+To understand anomaly behaviors, we developed and trained two distinct architectures, one using a random forest tree and another using FC-AutoEncoder. The random forest tree classifier showed a promising result of 99% in this task; however, its model size exceeds 16 MB, which is beyond the limit to be run on the STM32 chipset. The result of anomaly detection is shown below:
 
 <div align="center">
   <img 
@@ -221,7 +221,7 @@ Nevertheless, as shown in the training process, due to the limited size of the m
     src="https://github.com/user-attachments/assets/f236673e-6714-40e1-9e2d-fcd264d21c24">
 </div>
 
-But its 41 KB size makes it manageable to work with in embedding systems.
+But its 41 KB size makes it manageable to work with in embedded systems.
 
 ## Dataset Gathering
 
@@ -255,7 +255,7 @@ The measured outputs of the TFLite model:
     src="https://github.com/user-attachments/assets/c2cd8bac-cdd7-45da-ac96-c5886438e55a">
 </div>
 
-And finally, the execution time over iterations:
+And finally, Execution time across iterations:
 
 <div align="center">
   <img 
