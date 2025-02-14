@@ -179,22 +179,24 @@ Furthermore, more detailed information regarding classification is included belo
 weighted avg       0.90      0.89      0.89      1234
 ```
 
+#### Dataset Gathering
+
+One of our works' novel contributions is emotion detection dataset creation. For this dataset, we utilized GPT to generate sentences for each emotion, resulting in more than 6000 Farsi-labeled sentences across 12 different classes. For this reason, we used prompt engineering techniques to make sure that the generated sentences were valid and also unique.
+
 ### Anomaly Detection
 
 To understand anomaly behaviors, we developed and trained two distinct architectures, one using a random forest tree and another using FC-AutoEncoder. The random forest tree classifier showed a promising result of 99% in this task; however, its model size exceeds 16 MB, which is beyond the limit to be run on the STM32 chipset. The result of anomaly detection is shown below:
 
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/user-attachments/assets/933df4c2-7e85-4a94-9549-7eadf43da01d">
+  <img src="https://github.com/user-attachments/assets/933df4c2-7e85-4a94-9549-7eadf43da01d" width="1000">
+  <p><b>Result for Anomaly Detection</b></p>
 </div>
 
-Using FC-AutoEncoder, we achieved acceptable results, which is shown here:
+Using FC-AutoEncoder, we achieved acceptable results, which is shown below:
 
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/user-attachments/assets/eb27c997-1546-4a13-927b-5e560b81868d">
+  <img src="https://github.com/user-attachments/assets/eb27c997-1546-4a13-927b-5e560b81868d" width="1000">
+  <p><b>Result for Anomaly Detection Using FC-AutoEncoder</b></p>
 </div>
 
 Nevertheless, as shown in the training process, due to the limited size of the model, it is not capable of understanding the meaning and relation between labels and dense feature space.
@@ -206,10 +208,6 @@ Nevertheless, as shown in the training process, due to the limited size of the m
 </div>
 
 But its 41 KB size makes it manageable to work with in embedded systems.
-
-## Dataset Gathering
-
-One of our works' novel contributions is emotion detection dataset creation. For this dataset, we utilized GPT to generate sentences for each emotion, resulting in more than 6000 Farsi-labeled sentences across 12 different classes. For this reason, we used prompt engineering techniques to make sure that the generated sentences were valid and also unique.
 
 ## Simulation Process
 
