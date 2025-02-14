@@ -40,21 +40,33 @@ This project benchmarks the performance of the STM32F103 microcontroller in runn
 ### Deployment with Keil uVision5
 
 #### 1. Model Preparation and Conversion
-- Convert trained model to TensorFlow Lite format using `ModelConverter.py`.  
-- Validate the TensorFlow Lite model with `ValidateTFModel.py`.  
-- Convert the `.tflite` model into a C header file using the command:  
+- Convert trained model to TensorFlow Lite format using `ModelConverter.py`.
+- Validate the TensorFlow Lite model with `ValidateTFModel.py`.
+- Convert the `.tflite` model into a C header file using the command:
   ```bash
   xxd -i speech_commands_model_float32.tflite model_data.h
   ```
   This embeds the model data directly into firmware.
 
-**2. Firmware Development in Keil uVision5**  
-- Open the Keil project file (e.g., `RUN.uvprojx`) located in the `Code/STM32` folder.  
+#### 2. Firmware Development in Keil uVision5**
+- Open the Keil project file (e.g., `RUN.uvprojx`) located in the `Code/STM32` folder.
 - Configure the target device as an STM32F103 microcontroller, ensuring clock and memory settings match the board.
 - In the main source file (e.g., `Runner.c`), implement code to:
   - Capture audio data.
   - Run inference using the embedded model from `model_data.h`.
   - Measure and print inference time and predicted labels to a serial terminal.
+
+![Keil uVision5 Board Menu](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic1.jpg)
+
+![Keil uVision5 Manage Run-Time Environment Menu](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic2.jpg)
+
+![Run-Time Environment Config](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic3.jpg)
+
+![Project Structure](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic4.jpg)
+
+![Cortex-M Target Driver Setup, Debug Menu](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic5.jpg)
+
+![Cortex-M Target Driver Setup, Flash Download Menu](https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic6.jpg)
 
 Keil uVision5 Board Menu:
 
