@@ -8,7 +8,7 @@
 - [Implementation Details](#implementation-details)
   - [Deployment with Keil uVision5](#deployment-with-keil-uvision5)
   - [Simulation Environment for Python Scripts](#simulation-environment-for-python-scripts)
-- [Results](#results)
+- [Scenarios](#scenarios)
   - [Emotion Detection](#emotion-detection)
   - [Anomaly Detection](#anomaly-detection)
 - [Simulation Process](#simulation-process)
@@ -42,8 +42,8 @@ This project benchmarks the performance of the STM32F103 microcontroller in runn
 - Convert trained model to TensorFlow Lite format using `ModelConverter.py`.
 - Validate the TensorFlow Lite model with `ValidateTFModel.py`.
 - Convert the `.tflite` model into a C header file using the command:
-  ```bash
-  xxd -i speech_commands_model_float32.tflite model_data.h
+  ```sh
+  xxd -i speech_commands_model_float32.tflite > model_data.h
   ```
   This embeds the model data directly into firmware.
 
@@ -111,7 +111,7 @@ This project benchmarks the performance of the STM32F103 microcontroller in runn
      ```
    - These scripts will run the TensorFlow Lite model in a simulated environment and output performance metrics and inference results.
 
-## Results
+## Scenarios
 
 As we can interpret from the table below, in this work, we assess five different scenarios, targeting different tasks in ML, like speech recognition, anomaly detection, image classification, and lastly, emotion detection in the domain of natural language processing.
 

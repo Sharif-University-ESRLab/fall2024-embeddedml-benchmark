@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.6)  14 FEB 2025 19:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.6)  14 FEB 2025 19:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -530,91 +530,87 @@ Files/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 111
+LaTeX Font Info:    Trying to load font information for U+msa on input line 107
 .
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 111
+LaTeX Font Info:    Trying to load font information for U+msb on input line 107
 .
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2]
-<anamoly_forest.jpg, id=108, 634.62094pt x 506.6428pt>
+<anamoly_forest.jpg, id=104, 634.62094pt x 506.6428pt>
 File: anamoly_forest.jpg Graphic file (type jpg)
 <use anamoly_forest.jpg>
-Package pdftex.def Info: anamoly_forest.jpg  used on input line 165.
+Package pdftex.def Info: anamoly_forest.jpg  used on input line 153.
 (pdftex.def)             Requested size: 247.6778pt x 197.72905pt.
-<anamoly_auto.jpg, id=109, 657.2053pt x 496.85625pt>
+<anamoly_auto.jpg, id=105, 657.2053pt x 496.85625pt>
 File: anamoly_auto.jpg Graphic file (type jpg)
 <use anamoly_auto.jpg>
-Package pdftex.def Info: anamoly_auto.jpg  used on input line 172.
+Package pdftex.def Info: anamoly_auto.jpg  used on input line 160.
 (pdftex.def)             Requested size: 247.6778pt x 187.24556pt.
-<bert_acc.jpg, id=110, 962.84718pt x 608.2725pt>
+<bert_acc.jpg, id=106, 962.84718pt x 608.2725pt>
 File: bert_acc.jpg Graphic file (type jpg)
 <use bert_acc.jpg>
-Package pdftex.def Info: bert_acc.jpg  used on input line 188.
+Package pdftex.def Info: bert_acc.jpg  used on input line 176.
 (pdftex.def)             Requested size: 247.6778pt x 156.46716pt.
-<bert_loss.jpg, id=111, 947.03813pt x 617.30624pt>
+<bert_loss.jpg, id=107, 947.03813pt x 617.30624pt>
 File: bert_loss.jpg Graphic file (type jpg)
 <use bert_loss.jpg>
-Package pdftex.def Info: bert_loss.jpg  used on input line 195.
+Package pdftex.def Info: bert_loss.jpg  used on input line 183.
 (pdftex.def)             Requested size: 247.6778pt x 161.43776pt.
- [3]
-<mat_lstm.jpg, id=128, 807.7678pt x 693.34032pt>
+<mat_lstm.jpg, id=115, 807.7678pt x 693.34032pt>
 File: mat_lstm.jpg Graphic file (type jpg)
 <use mat_lstm.jpg>
-Package pdftex.def Info: mat_lstm.jpg  used on input line 221.
+Package pdftex.def Info: mat_lstm.jpg  used on input line 209.
 (pdftex.def)             Requested size: 247.6778pt x 212.58463pt.
-<mat_lstm_enhanced.jpg, id=129, 813.79031pt x 699.36281pt>
+<mat_lstm_enhanced.jpg, id=116, 813.79031pt x 699.36281pt>
 File: mat_lstm_enhanced.jpg Graphic file (type jpg)
 <use mat_lstm_enhanced.jpg>
-Package pdftex.def Info: mat_lstm_enhanced.jpg  used on input line 228.
+Package pdftex.def Info: mat_lstm_enhanced.jpg  used on input line 216.
 (pdftex.def)             Requested size: 247.6778pt x 212.8518pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
+ [3]
 Underfull \vbox (badness 1024) has occurred while \output is active []
 
  [4 <./anamoly_forest.jpg> <./anamoly_auto.jpg> <./bert_acc.jpg> <./bert_loss.j
 pg>]
-Underfull \hbox (badness 7415) in paragraph at lines 271--272
+Underfull \hbox (badness 7415) in paragraph at lines 259--260
 []\OT1/ptm/m/n/8 R. David, J. Duke, A. Jain, M. War-den, and P. Plitzner,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
+Underfull \hbox (badness 10000) in paragraph at lines 259--260
 \OT1/ptm/m/n/8 Avail-able: []$https : / / proceedings . mlsys . org / paper[]^^
 Lles / paper / 2021 / ^^Lle /
  []
 
 [5 <./mat_lstm.jpg> <./mat_lstm_enhanced.jpg>]
-Underfull \hbox (badness 2529) in paragraph at lines 298--299
+Underfull \hbox (badness 2529) in paragraph at lines 284--285
 []\OT1/ptm/m/n/8 C. Ban-bury et al., ``MLPerf Tiny Bench-mark,'' *arXiv preprin
 t
  []
 
 
-Underfull \hbox (badness 4416) in paragraph at lines 304--305
+Underfull \hbox (badness 4416) in paragraph at lines 290--291
 []\OT1/ptm/m/n/8 P. Torelli and M. Ban-gale, ``Mea-sur-ing In-fer-ence Per-for-
 mance
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+Underfull \hbox (badness 10000) in paragraph at lines 290--291
 \OT1/ptm/m/n/8 of Machine-Learning Frame-works on Edge-Class De-vices
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+Underfull \hbox (badness 10000) in paragraph at lines 290--291
 \OT1/ptm/m/n/8 with the ML-Mark Bench-mark,'' *EEMBC Tech-ni-cal Re-port*,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+Underfull \hbox (badness 10000) in paragraph at lines 290--291
 \OT1/ptm/m/n/8 2020. Avail-able: []$https : / / www . eembc . org / techlit / a
 rticles /
  []
@@ -638,25 +634,25 @@ LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
  ***********
 Package rerunfilecheck Info: File `Benchmark.out' has not changed.
-(rerunfilecheck)             Checksum: 2EFF75D7120E2F5E385CF9882B026F2C;1574.
+(rerunfilecheck)             Checksum: D56AA9C66DDF0924DBA15BF69ED93353;1425.
  ) 
 Here is how much of TeX's memory you used:
- 12866 strings out of 474591
- 204575 string characters out of 5755596
+ 12862 strings out of 474591
+ 204500 string characters out of 5755596
  1949533 words of memory out of 5000000
- 34847 multiletter control sequences out of 15000+600000
+ 34845 multiletter control sequences out of 15000+600000
  594927 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,10n,79p,1139b,580s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,1120b,580s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program
  Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1
 /urw/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmbi8a.pf
 b><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/M
 iKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Benchmark.pdf (6 pages, 559574 bytes).
+Output written on Benchmark.pdf (6 pages, 556427 bytes).
 PDF statistics:
- 216 PDF objects out of 1000 (max. 8388607)
- 43 named destinations out of 1000 (max. 500000)
- 143 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 208 PDF objects out of 1000 (max. 8388607)
+ 41 named destinations out of 1000 (max. 500000)
+ 135 words of extra memory for PDF output out of 10000 (max. 10000000)
 
