@@ -130,20 +130,14 @@ Regarding detecting whether a sentence in the domain of text has what type of em
 
 For the BERT model, we utilized the ParsBERT embedding space and defined a Dense-CNN classifier on top of it to be trained using our novel dataset. Below, the process of training and the value of accuracy and loss can be seen:
 
-Accuracy over each iteration of training:
-
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/user-attachments/assets/1c2ca0ca-fbb0-4278-8d85-df3baa9e6d42">
+  <img src="https://github.com/user-attachments/assets/1c2ca0ca-fbb0-4278-8d85-df3baa9e6d42" width="1000">
+  <p><b>Accuracy over each iteration of training</b></p>
 </div>
 
-The value of loss for each iteration:
-
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/user-attachments/assets/71506042-5d7a-4927-abd1-a2a34936bc99">
+  <img src="https://github.com/user-attachments/assets/71506042-5d7a-4927-abd1-a2a34936bc99" width="1000">
+  <p><b>The value of loss for each iteration</b></p>
 </div>
 
 With the aid of the TFlite converter, we were able to reduce the size of the model to one-fourth of the initial size or, in other words, 162 MB, but this is beyond our limitation of the embedded system, so we developed an LSTM architecture in its place.
@@ -152,20 +146,14 @@ With the aid of the TFlite converter, we were able to reduce the size of the mod
 
 For this task, we developed two distinct models, one regular one using a simple tokenizer by defining a dictionary of 2000 maximum vocab, and another using dynamic-learning rate and `sparse_categorical_crossentropy` loss. This model resulted in 82% and 89% accuracy, respectively, which is a promising result for 640 KB and 161 KB models.
 
-Here, the confusion matrix of LSTM architecture can be seen:
-
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/user-attachments/assets/fc1725a9-e641-4f85-9458-27b708a142d7">
+  <img src="https://github.com/user-attachments/assets/fc1725a9-e641-4f85-9458-27b708a142d7" width="1000">
+  <p><b>Confusion Matrix of LSTM Architecture</b></p>
 </div>
 
-And we have this result for enhanced architecture:
-
 <div align="center">
-  <img 
-    style="width: 1000px;"
-    src="https://github.com/user-attachments/assets/cc5c4c41-f421-43e2-b0c4-ca71192d8a28">
+  <img src="https://github.com/user-attachments/assets/cc5c4c41-f421-43e2-b0c4-ca71192d8a28" width="1000">
+  <p><b>Result for Enhanced Architecture</b></p>
 </div>
 
 Furthermore, more detailed information regarding classification is included below:
