@@ -2,17 +2,31 @@
 
 # A Benchmarking Framework for Machine Learning Algorithms on Embedded Devices
 
+## Table of Contents
+- [Overview](#overview)
+- [Tools](#tools)
+- [Implementation Details](#implementation-details)
+  - [Deployment with Keil uVision5](#deployment-with-keil-uvision5)
+  - [Simulation Environment for Python Scripts](#simulation-environment-for-python-scripts)
+- [Results](#results)
+  - [Emotion Detection](#emotion-detection)
+  - [Anomaly Detection](#anomaly-detection)
+- [Dataset Gathering](#dataset-gathering)
+- [Simulation Process](#simulation-process)
+- [Additional Notes](#additional-notes)
+- [Related Links](#related-links)
+- [Authors](#authors)
+
+## Overview
 This project benchmarks the performance of the STM32F103 microcontroller in running machine learning models for keyword spotting, image classification, anomaly detection, and emotion recognition. We convert models into optimized formats and analyze inference speed, memory usage, and power consumption to assess their feasibility on embedded systems. We used Keil uVision5 for firmware development and provided a Python-based simulation environment for validating models before deployment. This work helps assess the practical applications of machine learning on low-power embedded devices.
 
 ## Tools
 
-**Hardware:**
-
+### Hardware
 - **STM32 Development Board:** A STM32F103C8 Board
 -  **ST-Link programmer** for flashing the firmware
 
-**Software:**
-
+### Software
 - **Development Tools:**
   - **Keil uVision5** (ARM uVision 5, version 5.x)
 - **Libraries:**
@@ -23,9 +37,9 @@ This project benchmarks the performance of the STM32F103 microcontroller in runn
 
 ## Implementation Details
 
-#### Deployment with Keil uVision5
+### Deployment with Keil uVision5
 
-**1. Model Preparation and Conversion**  
+#### 1. Model Preparation and Conversion
 - Convert trained model to TensorFlow Lite format using `ModelConverter.py`.  
 - Validate the TensorFlow Lite model with `ValidateTFModel.py`.  
 - Convert the `.tflite` model into a C header file using the command:  
