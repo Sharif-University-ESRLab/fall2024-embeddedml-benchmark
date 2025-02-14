@@ -11,7 +11,7 @@ This repository contains the codebase for the EmbeddedML-Benchmark project, whic
 
 ## Subdirectories
 
-### AnomalyDetection
+### Anomaly Detection
 
 This module focuses on detecting anomalies within datasets.
 
@@ -23,7 +23,7 @@ This module focuses on detecting anomalies within datasets.
   - **autoencoder_model.tflite**: TensorFlow Lite model of the autoencoder used for anomaly detection.
   - **random_forest_model.tflite**: TensorFlow Lite model of the random forest classifier.
 
-### EmotionDetection
+### Emotion Detection
 
 This module is designed to detect emotions from textual data.
 
@@ -37,7 +37,7 @@ This module is designed to detect emotions from textual data.
   - **lstm_emotion_model.tflite**: TensorFlow Lite model of the LSTM-based emotion classifier.
   - **lstm_emotion_model_enhanced.tflite**: An enhanced version of the LSTM model with improved accuracy.
 
-### ImageClassification
+### Image Classification
 
 This module handles image classification tasks using various neural network architectures.
 
@@ -48,7 +48,7 @@ This module handles image classification tasks using various neural network arch
   - **cifar10_mobilenetv2_finetuned.tflite**: Fine-tuned version of the MobileNetV2 model.
   - **cifar10_tinyml.tflite**: A compact model optimized for TinyML applications.
 
-### KeywordSpottingTrainer
+### Keyword Spotting
 
 This module is dedicated to training models for keyword spotting tasks.
 

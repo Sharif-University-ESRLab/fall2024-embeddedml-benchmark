@@ -208,13 +208,56 @@ Nevertheless, as shown in the training process, due to the limited size of the m
 
 But its 41 KB size makes it manageable to work with in embedded systems.
 
-### Image Classification
+### **Image Classification**
 
+#### **Overview**
+Image Classification involves training a model to categorize images into predefined classes using deep learning models like Convolutional Neural Networks (CNNs).
 
+#### **Steps**
 
-### Keyword Spotting
+1. Model Training
 
+- **Prepare the Dataset**: Download and preprocess the dataset (e.g., CIFAR-10, ImageNet). Split into training, validation, and test sets.
+- **Define the Model**: Use CNNs or pre-trained models like ResNet or VGG.
+- **Train the Model**: Compile and fit the model to the dataset.
+- **Evaluate the Model**: Test the model using accuracy, precision, and recall metrics.
 
+2. Model Evaluation
+
+Evaluate the trained model's performance on a test dataset using metrics like accuracy.
+
+3. Model Inference
+
+Use the trained model to classify new images.
+
+### **Keyword Spotting**
+
+#### **Overview**
+Keyword Spotting detects specific words or phrases in an audio stream, typically using features like MFCCs and models like CNNs.
+
+#### **Steps**
+
+1. Dataset Preparation
+
+- **Download the Dataset**: Use the Google Speech Commands dataset.
+- **Preprocess the Data**: Convert audio to features (MFCC, LFBE, or raw samples).
+- **Split the Data**: Divide into training, validation, and test sets.
+
+2. Model Training
+
+- **Define the Model**: Use CNN or RNN architectures.
+- **Train the Model**: Compile and train the model using the prepared dataset.
+- **Save the Model**: Save the trained model for later use.
+
+3. Model Evaluation
+
+Evaluate the model on the test set using accuracy, precision, recall, and AUC.
+
+4. Quantization and Inference
+
+- **Quantize the Model**: Convert the model to TensorFlow Lite format for efficient deployment.
+- **Evaluate the Quantized Model**: Ensure the quantized model performs well.
+- **Run Inference**: Use the model for real-time keyword detection.
 
 ## Simulation Process
 
