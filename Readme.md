@@ -2,20 +2,34 @@
 
 # A Benchmarking Framework for Machine Learning Algorithms on Embedded Devices
 
-This project measures how well an STM32 microcontroller can recognize spoken commands. It checks how fast the device processes information, how much memory it uses, and how much power it consumes.
+## Table of Contents
+- [Overview](#overview)
+- [Tools](#tools)
+- [Implementation Details](#implementation-details)
+  - [Deployment with Keil uVision5](#deployment-with-keil-uvision5)
+  - [Simulation Environment for Python Scripts](#simulation-environment-for-python-scripts)
+- [Scenarios](#scenarios)
+  - [Emotion Detection](#emotion-detection)
+  - [Anomaly Detection](#anomaly-detection)
+  - [ImageClassification](#image-classification)
+  - [KeywordSpotting](#keyword-spotting)
+- [Simulation Process](#simulation-process)
+- [Additional Notes](#additional-notes)
+- [Related Links](#related-links)
+- [Authors](#authors)
+
+## Overview
+This project benchmarks the performance of the STM32F103 microcontroller in running machine learning models for keyword spotting, image classification, anomaly detection, and emotion recognition. We convert models into optimized formats and analyze inference speed, memory usage, and power consumption to assess their feasibility on embedded systems. We used Keil uVision5 for firmware development and provided a Python-based simulation environment for validating models before deployment. This work helps assess the practical applications of machine learning on low-power embedded devices.
 
 ## Tools
 
-**Hardware:**
+### Hardware
+- **STM32 Development Board:** A STM32F103C8 Board
+-  **ST-Link programmer** for flashing the firmware
 
-- **STM32 Development Board:** We used the STM32F103R8 series.
-- **Audio Input:** A microphone or pre-recorded audio samples for testing.
-
-**Software:**
-
+### Software
 - **Development Tools:**
-  - **STM32CubeIDE:** An integrated development environment for STM32 microcontrollers.
-  - **STM32Cube.AI:** A tool to convert and optimize neural network models for STM32 devices.
+  - **Keil uVision5** (ARM uVision 5, version 5.x)
 - **Libraries:**
   - **TensorFlow Lite for Microcontrollers:** A lightweight version of TensorFlow designed for microcontroller environments.
 - **Other Tools:**
@@ -24,108 +38,89 @@ This project measures how well an STM32 microcontroller can recognize spoken com
 
 ## Implementation Details
 
-**1. Model Preparation and Conversion**
+### Deployment with Keil uVision5
 
-- **Convert the Model to TensorFlow Lite Format:**
-  - Use a script (e.g., `ModelConverter.py`) to convert your trained model into the TensorFlow Lite format (`.tflite`).
+#### 1. Model Preparation and Conversion
+- Convert trained model to TensorFlow Lite format using `ModelConverter.py`.
+- Validate the TensorFlow Lite model with `ValidateTFModel.py`.
+- Convert the `.tflite` model into a C header file using the command:
+  ```sh
+  xxd -i speech_commands_model_float32.tflite > model_data.h
+  ```
+  This embeds the model data directly into firmware.
 
-- **Validate the TensorFlow Lite Model:**
-  - Use a validation script (e.g., `ValidateTFModel.py`) to ensure the converted model works correctly.
+#### 2. Firmware Development in Keil uVision5
+- Open the Keil project file (e.g., `RUN.uvprojx`) located in the `Code/STM32` folder.
+- Configure the target device as an STM32F103 microcontroller, ensuring clock and memory settings match the board.
+- In the main source file (e.g., `Runner.c`), implement code to:
+  - Capture audio data.
+  - Run inference using the embedded model from `model_data.h`.
+  - Measure and print inference time and predicted labels to a serial terminal.
 
-**2. Setting Up the STM32 Environment**
+<div align="center">
+  <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic1.jpg" width="1000">
+  <p><b>Keil uVision5 Board Menu</b></p>
+</div>
 
-- **Install STM32CubeIDE:**
-  - Download and install STM32CubeIDE from the [STMicroelectronics website](https://www.st.com/en/development-tools/stm32cubeide.html).
+<div align="center">
+  <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic2.jpg" width="1000">
+  <p><b>Keil uVision5 Manage Run-Time Environment Menu</b></p>
+</div>
 
-- **Install STM32Cube.AI:**
-  - Within STM32CubeIDE, install the STM32Cube.AI plugin to enable model conversion and optimization features.
+<div align="center">
+  <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic3.jpg" width="1000">
+  <p><b>Run-Time Environment Config</b></p>
+</div>
 
-**3. Deploying the Model to STM32**
+<div align="center">
+  <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic4.jpg" width="1000">
+  <p><b>Project Structure</b></p>
+</div>
 
-- **Convert the TensorFlow Lite Model to C Code:**
-  - Open STM32CubeIDE and switch to the STM32Cube.AI perspective.
-  - Select your `.tflite` model file.
-  - STM32Cube.AI will generate optimized C code from the model.
+<div align="center">
+  <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic5.jpg" width="1000">
+  <p><b>Cortex-M Target Driver Setup, Debug Menu</b></p>
+</div>
 
-- **Create a New STM32 Project:**
-  - In STM32CubeIDE, create a new project for your specific STM32 board.
-  - Add the generated C files from STM32Cube.AI to your project.
-  - Configure necessary peripherals (e.g., ADC, I2S) for audio input.
-  - Use the generated API to load the model and perform inference.
+<div align="center">
+  <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Pic6.jpg" width="1000">
+  <p><b>Cortex-M Target Driver Setup, Flash Download Menu</b></p>
+</div>
 
-**4. Implementing the Benchmark Test**
+#### 3. Building and Flashing the Firmware
+- **Build the Project:** In Keil uVision5, navigate to **Project > Open Project...** to load your project, then click the **Build** button to compile the firmware.
+- **Flash the Firmware:** Connect the STM32F103 board via ST-Link, and use the **Download** option to flash the firmware. After flashing, reset or power cycle the board to start the benchmark application.
 
-- **Develop Inference Code:**
-  - Write the main application code (e.g., in `runner.c`) to:
-    - Capture audio data.
-    - Preprocess the data as required by the model.
-    - Run inference using the model.
-    - Record performance metrics.
+#### 4. Running the Benchmark
+- Open a serial terminal (e.g., PuTTY, Tera Term) to monitor the output from the STM32F103 board.
+- The device will print inference times and predicted labels, this allows analyzing performance metrics such as inference latency, memory usage, and power consumption.
 
-- **Measure Performance Metrics:**
-  - **Inference Latency:** Measure the time taken to perform a single inference.
-  - **Memory Usage:** Monitor RAM and Flash usage to ensure they are within the STM32's constraints.
-  - **Power Consumption:** Use tools like ST-Link's power profiling feature or external hardware to assess power usage during inference.
+### Simulation Environment for Python Scripts
 
-**5. Running and Analyzing the Benchmark**
+1. **Install Python and Dependencies:**
+   - Ensure that Python 3.x is installed on your system.
+   - Open a command prompt in the repository’s root directory.
+   - Install required Python packages using:
+     ```bash
+     pip install -r Code/requirements.txt
+     ```
 
-- **Flash the Firmware:**
-  - Build the project in STM32CubeIDE to generate the firmware binary.
-  - Connect the STM32 board and flash the firmware onto it.
+2. **Run Simulation Scripts:**
+   - To validate the model conversion or simulate inference on your computer, navigate to the appropriate folder (e.g., `Code`).
+   - Execute simulation scripts such as:
+     ```bash
+     python ValidateTFModel.py
+     ```
+   - These scripts will run the TensorFlow Lite model in a simulated environment and output performance metrics and inference results.
 
-- **Execute the Benchmark:**
-  - Reset or power cycle the STM32 board to start running the benchmark.
-  - Use a serial terminal (e.g., PuTTY, Tera Term) to view the printed inference times and predicted labels.
+## Scenarios
 
-- **Analyze Data:**
-  - **Inference Latency:** Calculate the average, minimum, and maximum inference times from the serial output.
-  - **Memory Usage:** Check the compiled binary size and runtime memory usage.
-  - **Power Consumption:** Review the power usage data collected during inference operations.
+As we can interpret from the table below, in this work, we assess four different scenarios, targeting different tasks in ML, like speech recognition, anomaly detection, image classification, and lastly, emotion detection in the domain of natural language processing.
 
-**Example Serial Output:**
-
-```
-Inference Time: 15 ms, Predicted Label: 3
-Inference Time: 14 ms, Predicted Label: 7
-Inference Time: 16 ms, Predicted Label: 2
-...
-```
-
-## How to Run
-
-**Build the Project:**
-
-In STM32CubeIDE, build your project to generate the firmware binary.
-
-**Flash the Firmware:**
-
-Connect your STM32 board to your computer.
-
-Use STM32CubeIDE to flash the generated firmware onto the board.
-
-**Run the Benchmark:**
-
-After flashing, reset or power cycle the STM32 board.
-
-Open a serial terminal (e.g., PuTTY, Tera Term) and connect to the appropriate COM port to view the output.
-
-
-## Results
-
-After running the benchmark, you should observe output similar to the following in your serial terminal:
-
-```
-Inference Time: 15 ms, Predicted Label: 3
-Inference Time: 14 ms, Predicted Label: 7
-Inference Time: 16 ms, Predicted Label: 2
-...
-```
-
-Analyze this data to assess your model's performance on the STM32 microcontroller.
-
-As we can interpret from the table below, in this work, we assess five different scenarios, targeting different tasks in ML, like speech recognition, anomaly detection, image classification, and lastly, emotion detection in the domain of natural language processing.
-
-![image](https://github.com/user-attachments/assets/4ce2b044-fa08-41f4-ad6d-e81e4e9fe802)
+<div align="center">
+  <img src="https://github.com/Sharif-University-ESRLab/fall2024-embeddedml-benchmark/blob/main/Code/STM32/Pics/Overview.jpg" width="1000">
+  <p><b>Overall results for each scenario</b></p>
+</div>
 
 From the table, it can be understood that many developed TFLite models are well reached in the limited target of 64 KB memory, and only the LSTM structure exceeds this value because of its tokenizer.
 
@@ -135,27 +130,31 @@ Regarding detecting whether a sentence in the domain of text has what type of em
 
 For the BERT model, we utilized the ParsBERT embedding space and defined a Dense-CNN classifier on top of it to be trained using our novel dataset. Below, the process of training and the value of accuracy and loss can be seen:
 
-Accuracy over each iteration of training:
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/1c2ca0ca-fbb0-4278-8d85-df3baa9e6d42" width="1000">
+  <p><b>Accuracy over each iteration of training</b></p>
+</div>
 
-![image](https://github.com/user-attachments/assets/1c2ca0ca-fbb0-4278-8d85-df3baa9e6d42)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/71506042-5d7a-4927-abd1-a2a34936bc99" width="1000">
+  <p><b>The value of loss for each iteration</b></p>
+</div>
 
-The value of loss for each iteration:
-
-![image](https://github.com/user-attachments/assets/71506042-5d7a-4927-abd1-a2a34936bc99)
-
-With the aid of the TFlite converter, we were able to reduce the size of the model to one-fourth of the initial size or, in other words, 162 MB, but this is beyond our limitation of the embedding system, so we developed an LSTM architecture in its place.
+With the aid of the TFlite converter, we were able to reduce the size of the model to one-fourth of the initial size or, in other words, 162 MB, but this is beyond our limitation of the embedded system, so we developed an LSTM architecture in its place.
 
 #### LSTM Model to Detect Emotion
 
 For this task, we developed two distinct models, one regular one using a simple tokenizer by defining a dictionary of 2000 maximum vocab, and another using dynamic-learning rate and `sparse_categorical_crossentropy` loss. This model resulted in 82% and 89% accuracy, respectively, which is a promising result for 640 KB and 161 KB models.
 
-Here, the confusion matrix of LSTM architecture can be seen:
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/fc1725a9-e641-4f85-9458-27b708a142d7" width="1000">
+  <p><b>Confusion Matrix of LSTM Architecture</b></p>
+</div>
 
-![image](https://github.com/user-attachments/assets/fc1725a9-e641-4f85-9458-27b708a142d7)
-
-And we have this result for enhanced architecture:
-
-![image](https://github.com/user-attachments/assets/cc5c4c41-f421-43e2-b0c4-ca71192d8a28)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/cc5c4c41-f421-43e2-b0c4-ca71192d8a28" width="1000">
+  <p><b>Result for Enhanced Architecture</b></p>
+</div>
 
 Furthermore, more detailed information regarding classification is included below:
 
@@ -180,53 +179,126 @@ Furthermore, more detailed information regarding classification is included belo
 weighted avg       0.90      0.89      0.89      1234
 ```
 
+#### Dataset Gathering
+
+One of our works' novel contributions is emotion detection dataset creation. For this dataset, we utilized GPT to generate sentences for each emotion, resulting in more than 6000 Farsi-labeled sentences across 12 different classes. For this reason, we used prompt engineering techniques to make sure that the generated sentences were valid and also unique.
+
 ### Anomaly Detection
 
-To understand anomaly behaviors, we developed and trained two distinct architectures, one using a random forest tree and another using FC-AutoEncoder. The random forest tree classifier showed a promising result of 99% in this task; however, its model size exceeds 16 MB, which is beyond the limit to be run on the STM32 chipset. The result of anomy detection is shown below:
+To understand anomaly behaviors, we developed and trained two distinct architectures, one using a random forest tree and another using FC-AutoEncoder. The random forest tree classifier showed a promising result of 99% in this task; however, its model size exceeds 16 MB, which is beyond the limit to be run on the STM32 chipset. The result of anomaly detection is shown below:
 
-![image](https://github.com/user-attachments/assets/933df4c2-7e85-4a94-9549-7eadf43da01d)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/933df4c2-7e85-4a94-9549-7eadf43da01d" width="1000">
+  <p><b>Result for Anomaly Detection</b></p>
+</div>
 
-Using FC-AutoEncoder, we achieved acceptable results, which is shown here:
+Using FC-AutoEncoder, we achieved acceptable results, which is shown below:
 
-![image](https://github.com/user-attachments/assets/eb27c997-1546-4a13-927b-5e560b81868d)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/eb27c997-1546-4a13-927b-5e560b81868d" width="1000">
+  <p><b>Result for Anomaly Detection Using FC-AutoEncoder</b></p>
+</div>
 
 Nevertheless, as shown in the training process, due to the limited size of the model, it is not capable of understanding the meaning and relation between labels and dense feature space.
 
-![image](https://github.com/user-attachments/assets/f236673e-6714-40e1-9e2d-fcd264d21c24)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/f236673e-6714-40e1-9e2d-fcd264d21c24" width="1000">
+  <p><b>Limited model size restricts learning, causing minimal loss improvement</b></p>
+</div>
 
-But its 41 KB size makes it manageable to work with in embedding systems.
+But its 41 KB size makes it manageable to work with in embedded systems.
 
+### **Image Classification**
 
-## Dataset Gathering
+#### **Overview**
+Image Classification involves training a model to categorize images into predefined classes using deep learning models like Convolutional Neural Networks (CNNs).
 
-One of our works' novel contributions is emotion detection dataset creation. For this dataset, we utilized GPT to generate sentences for each emotion, resulting in more than 6000 Farsi-labeled sentences across 12 different classes. For this reason, we used prompt engineering techniques to make sure that the generated sentences were valid and also unique.
+#### **Steps**
+
+1. Model Training
+
+- **Prepare the Dataset**: Download and preprocess the dataset (e.g., CIFAR-10, ImageNet). Split into training, validation, and test sets.
+- **Define the Model**: Use CNNs or pre-trained models like ResNet or VGG.
+- **Train the Model**: Compile and fit the model to the dataset.
+- **Evaluate the Model**: Test the model using accuracy, precision, and recall metrics.
+
+2. Model Evaluation
+
+Evaluate the trained model's performance on a test dataset using metrics like accuracy.
+
+3. Model Inference
+
+Use the trained model to classify new images.
+
+### **Keyword Spotting**
+
+#### **Overview**
+Keyword Spotting detects specific words or phrases in an audio stream, typically using features like MFCCs and models like CNNs.
+
+#### **Steps**
+
+1. Dataset Preparation
+
+- **Download the Dataset**: Use the Google Speech Commands dataset.
+- **Preprocess the Data**: Convert audio to features (MFCC, LFBE, or raw samples).
+- **Split the Data**: Divide into training, validation, and test sets.
+
+2. Model Training
+
+- **Define the Model**: Use CNN or RNN architectures.
+- **Train the Model**: Compile and train the model using the prepared dataset.
+- **Save the Model**: Save the trained model for later use.
+
+3. Model Evaluation
+
+Evaluate the model on the test set using accuracy, precision, recall, and AUC.
+
+4. Quantization and Inference
+
+- **Quantize the Model**: Convert the model to TensorFlow Lite format for efficient deployment.
+- **Evaluate the Quantized Model**: Ensure the quantized model performs well.
+- **Run Inference**: Use the model for real-time keyword detection.
 
 ## Simulation Process
 
 For the simulation process, we utilized the TFLite model to get the result. We analyzed and monitored the memory usage, CPU time, execution time, and outputs, and we were able to produce results iteratively in each area of measurement. the result is as follows.
 
-The CPU usage during iterations:
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/34d538e4-39c3-417e-9588-a9f8f99f3812" width="1000">
+  <p><b>The CPU usage during iterations</b></p>
+</div>
 
-![image](https://github.com/user-attachments/assets/34d538e4-39c3-417e-9588-a9f8f99f3812)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/2ee29c3c-012d-407d-9034-5e36fcb75bc7" width="1000">
+  <p><b>The Memory Usage</b></p>
+</div>
 
-The Memory Usage:
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/c2cd8bac-cdd7-45da-ac96-c5886438e55a" width="1000">
+  <p><b>The measured outputs of the TFLite model</b></p>
+</div>
 
-![image](https://github.com/user-attachments/assets/2ee29c3c-012d-407d-9034-5e36fcb75bc7)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/237c0567-a871-4cdb-ad58-842ac8bb1eb1" width="1000">
+  <p><b>Execution time across iterations</b></p>
+</div>
 
-The measured outputs of the TFLite model:
+## Additional Notes
 
-![image](https://github.com/user-attachments/assets/c2cd8bac-cdd7-45da-ac96-c5886438e55a)
+- **Firmware Development:**
+  - In this project, we used a converted TFLite model (via `xxd`) embedded as a C header (`model_data.h`). No external AI libraries are imported in the firmware code.
+  - Then in the project’s source files (`Runner.c`) we referenced `model_data.h`.
 
-And finally, the execution time over iterations:
-
-![image](https://github.com/user-attachments/assets/237c0567-a871-4cdb-ad58-842ac8bb1eb1)
-
+- **Simulation:**
+  - The Python simulation helps in validating the TFLite model performance before deploying it on hardware.
+  - To analyze memory usage, CPU time, and inference latency, we used a python script for each project.
 
 ## Related Links
 
 - [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
 - [STM32Cube.AI](https://www.st.com/en/development-tools/stm32cubeai.html)
 - [TensorFlow Lite for Microcontrollers](https://www.tensorflow.org/lite/microcontrollers)
+- [MLPerf Tiny Benchmark](https://arxiv.org/abs/2106.07597)
 
 ## Authors
 - [Iman Mohammadi](https://github.com/Imanm02)

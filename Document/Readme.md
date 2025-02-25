@@ -18,7 +18,7 @@ Our goal is to establish a standardized benchmarking methodology that enables re
 
 2. **Framework Design**: Developed a benchmarking framework tailored for embedded systems, focusing on real-world deployment and direct execution on microcontrollers.
 
-3. **Model Selection**: Chose five major ML tasks—Keyword Spotting, Visual Wake Words, Image Classification, Emotion Detection, and Anomaly Detection—to evaluate model performance across diverse applications.
+3. **Model Selection**: Chose four major ML tasks—Keyword Spotting, Image Classification, Emotion Detection, and Anomaly Detection—to evaluate model performance across diverse applications.
 
 4. **Model Optimization**: Applied techniques such as quantization and pruning to optimize models for deployment on resource-constrained hardware.
 

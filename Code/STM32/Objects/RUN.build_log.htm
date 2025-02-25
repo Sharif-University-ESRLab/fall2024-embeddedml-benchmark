@@ -62,30 +62,12 @@ Runner.c(1): warning: In file included from...
 ./model_data.h(3619): note: declare 'static' if the variable is not intended to be used outside of this translation unit
  3619 | unsigned int speech_commands_model_float32_tflite_len = 43392;
       | ^
-Runner.c(12): error: use of undeclared identifier 'int16_t'
-   12 |     int16_t input_data[MODEL_INPUT_SIZE];
-      |     ^
-Runner.c(13): error: use of undeclared identifier 'int8_t'
-   13 |     int8_t output_data[MODEL_OUTPUT_SIZE];
-      |     ^
-Runner.c(30): error: use of undeclared identifier 'int8_t'
-   30 |         int8_t max_score = INT8_MIN;
-      |         ^
-Runner.c(32): error: use of undeclared identifier 'output_data'
-   32 |             if (output_data[i] > max_score) {
-      |                 ^
-Runner.c(32): error: use of undeclared identifier 'max_score'
-   32 |             if (output_data[i] > max_score) {
-      |                                  ^
-Runner.c(33): error: use of undeclared identifier 'max_score'
-   33 |                 max_score = output_data[i];
-      |                 ^
-Runner.c(33): error: use of undeclared identifier 'output_data'
-   33 |                 max_score = output_data[i];
-      |                             ^
-2 warnings and 7 errors generated.
+Runner.c(2): error: 'ai_platform.h' file not found
+    2 | #include "ai_platform.h"
+      |          ^~~~~~~~~~~~~~~
+2 warnings and 1 error generated.
 compiling Runner.c...
-".\Objects\RUN.axf" - 7 Error(s), 7 Warning(s).
+".\Objects\RUN.axf" - 1 Error(s), 7 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -117,7 +99,7 @@ Package Vendor: Keil
       Source file:   Device/Source/ARM/STM32F1xx_OPT.s
       Source file:   Device/Source/ARM/startup_stm32f10x_md.s
 Target not created.
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

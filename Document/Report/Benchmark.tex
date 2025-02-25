@@ -42,7 +42,7 @@ armin.saghafian@gmail.com}
 \maketitle
 
 \begin{abstract}
-Deploying machine learning (ML) models on embedded systems is challenging due to strict memory and computational constraints. Traditional ML models are designed for large GPUs, but microcontrollers—commonly used in embedded environments—lack the memory to support models with millions of parameters. As the demand for ML in real-time systems grows, addressing these limitations has become critical. In this work, we introduce a benchmarking framework to evaluate ML models in embedded environments and on microcontrollers. Unlike prior studies that rely on simulators or require extensive pre-processing, our approach focuses on real-world deployment and direct execution. We assess model performance across five major tasks: Keyword Spotting, Visual Wake Words, Image Classification, Emotion Detection, and Anomaly Detection, providing a more practical evaluation of ML models under constrained conditions. Our findings offer insights into the trade-offs between accuracy, execution speed, and memory efficiency, contributing to standardized benchmarking methodologies for efficient TinyML deployment.
+Deploying machine learning (ML) models on embedded systems is challenging due to strict memory and computational constraints. Traditional ML models are designed for large GPUs, but microcontrollers—commonly used in embedded environments—lack the memory to support models with millions of parameters. As the demand for ML in real-time systems grows, addressing these limitations has become critical. In this work, we introduce a benchmarking framework to evaluate ML models in embedded environments and on microcontrollers. Unlike prior studies that rely on simulators or require extensive pre-processing, our approach focuses on real-world deployment and direct execution. We assess model performance across four major tasks: Keyword Spotting, Image Classification, Emotion Detection, and Anomaly Detection, providing a more practical evaluation of ML models under constrained conditions. Our findings offer insights into the trade-offs between accuracy, execution speed, and memory efficiency, contributing to standardized benchmarking methodologies for efficient TinyML deployment.
 
 
 \end{abstract}
@@ -54,7 +54,7 @@ TinyML, Machine Learning Embedded Systems
 \section{Introduction}
 The integration of machine learning (ML) into embedded systems is becoming increasingly viable due to its ability to enhance energy efficiency, ensure data privacy, and enable real-time decision-making at the edge. Traditionally, ML models have been deployed on cloud-based platforms or high-performance computing systems, but advancements in Tiny Machine Learning (TinyML) have made it possible to run ML workloads on ultra-low-power devices~\cite{tinyml2021, david2020tensorflow}. By performing inference directly on embedded hardware, TinyML eliminates the dependency on cloud computing, reducing latency and energy consumption while ensuring data remains on the device~\cite{banbury2021micronets, bouguera2018energy}.  
 
-Despite these advantages, deploying ML models on embedded systems introduces several challenges. These devices operate with constrained memory, computational power, and energy availability, making the execution of large ML models impractical without significant optimization~\cite{chowdhery2019visual, federov2019sparse}. Techniques such as model quantization, pruning, and compression are commonly used to reduce the resource footprint of ML models, but a structured benchmarking framework is necessary to evaluate the trade-offs between accuracy, latency, and efficiency in constrained environments~\cite{koizumi2019toyadmos, he2016deep}.  
+Despite these advantages, deploying ML models on embedded systems introduces several challenges. These devices operate with constrained memory, computational power, and energy availability, making the execution of large ML models impractical without significant optimization~\cite{federov2019sparse}. Techniques such as model quantization, pruning, and compression are commonly used to reduce the resource footprint of ML models, but a structured benchmarking framework is necessary to evaluate the trade-offs between accuracy, latency, and efficiency in constrained environments~\cite{koizumi2019toyadmos, he2016deep}.  
 
 In this work, we propose a benchmarking framework designed to systematically assess the feasibility of running ML models on resource-limited embedded hardware. By converting and optimizing models for execution in constrained environments, we compare various architectures and optimization techniques. Our benchmark evaluates key performance metrics providing insights into the practical deployment of TinyML applications~\cite{warden2018speech, zhang2017hello}.  
 
@@ -88,16 +88,12 @@ Other benchmarking efforts have focused on evaluating ML performance on microcon
 
 Additionally, prior studies on deploying ML models in embedded environments have often relied on {simulations} rather than real-world implementations. Many approaches assume idealized hardware settings or evaluate models using software simulators rather than executing them directly on microcontrollers~\cite{fedorov2019sparse}. This limits the practical relevance of the results, as real-world deployments involve additional constraints such as memory limitations, processor speed, and energy efficiency.
 
-% To address these shortcomings, our work builds upon previous benchmarking efforts while introducing {real-world evaluation scenarios} that emphasize practical constraints in TinyML deployments. Unlike prior studies, our framework focuses on {direct execution on microcontrollers}, ensuring that benchmarking results accurately reflect the challenges and trade-offs in deploying ML models in constrained environments. By systematically analyzing various ML models across multiple tasks—including {Keyword Spotting, Visual Wake Words, Image Classification, Emotion Detection, and Anomaly Detection}—we provide a comprehensive benchmark that enables researchers and developers to make informed decisions for deploying ML in embedded systems.
-
 \begin{table*}[!htbp]
     \centering
     \resizebox{0.8\textwidth}{!}{%
     \begin{tabular}{| c | c | c | c |}
         \toprule
         \textbf{Use Case} & \textbf{Dataset} & \textbf{TFLite Model Size} & \textbf{Quality Target} \\
-        \midrule
-        Visual Wake Words & VWW Dataset (96 $\times$ 96) & MobileNetV2 (2.4 KB) & 82\% (Top-1) \\
         \midrule
         Image Classification & CIFAR 10 (32 $\times$ 32) & TinyML (9 KB) & 85\% (Top-1) \\
         \midrule
@@ -110,7 +106,7 @@ Additionally, prior studies on deploying ML models in embedded environments have
     \end{tabular}
     }
     \vspace{0.6em}
-    \caption{Overall results for each scenrio.}
+    \caption{Overall results for each scenario.}
     \label{tab:img}
 \end{table*}
 
@@ -122,14 +118,6 @@ In this study, we evaluate and compare machine learning models in an environment
 To address this, we convert models to TensorFlow Lite (TFLite) format, which significantly reduces their size while maintaining their core functionalities. The benchmarking process follows a structured approach. First, each model is executed on real-world datasets to allow for quantization, optimizing it for efficient deployment. After this step, we use the TensorFlow ModelConverter to transform the model into a TFLite representation, which minimizes its size and reduces memory usage. Finally, the optimized TFLite model is deployed and executed on the embedded system, enabling direct performance comparison.
 
 This approach ensures that machine learning models can be fairly benchmarked under real-world embedded constraints, providing meaningful insights into their feasibility for deployment in TinyML environments.
-
-
-
-\subsection{Visual Wake Words}
-
-Visual wake word detection is a lightweight image recognition task designed for smart home and security applications. The goal is to determine whether a person is present in an image, enabling devices such as smart doorbells and occupancy sensors to operate efficiently with minimal power consumption.
-
-The dataset used for this task is the MSCOCO 2014 dataset, preprocessed to include only images where a person occupies more than 2.5\% of the frame. The images are resized to $96\times96$ pixels for model training. The benchmark model is a MobileNetV1 network with an input size of $96\times96$ and an alpha parameter of 0.25. The model is quantized and converted into TFLite format, resulting in a memory-efficient implementation that maintains a quality target of 80\% accuracy on the MSCOCO dataset.
 
 \subsection{Image Classification}
 
@@ -273,8 +261,6 @@ The benchmark suite and reference implementations are open-source and available 
 \bibitem{banbury2021micronets} C. R. Banbury, V. J. Reddi, M. Lam, W. Fu, and A. Fazel, ``Benchmarking TinyML Systems: Challenges and Direction,'' *arXiv preprint arXiv:2003.04821*, 2020. Available: \url{https://arxiv.org/abs/2003.04821}
 
 \bibitem{bouguera2018energy} T. Bouguera, C. Knaeblein, R. Diouris, and G. Andrieux, ``Energy consumption model for sensor nodes based on LoRa and LoRaWAN,'' *Sensors*, vol. 18, no. 7, p. 2104, 2018. Available: \url{https://www.mdpi.com/1424-8220/18/7/2104}
-
-\bibitem{chowdhery2019visual} A. Chowdhery, A. Howard, A. Vasudevan, and T. Weiss, ``Visual Wake Words Dataset and Challenge,'' *arXiv preprint arXiv:1906.05721*, 2019. Available: \url{https://arxiv.org/abs/1906.05721}
 
 \bibitem{federov2019sparse} A. Fedorov, S. Kim, and B. H. Meyer, ``Sparse Weight Activation Training,'' *arXiv preprint arXiv:1901.01074*, 2019. Available: \url{https://arxiv.org/abs/1901.01074}
 

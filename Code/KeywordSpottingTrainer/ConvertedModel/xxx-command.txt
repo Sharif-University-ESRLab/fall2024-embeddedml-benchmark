@@ -1,1 +1,0 @@
-xxd -i speech_commands_model_float32.tflite model_data.h
